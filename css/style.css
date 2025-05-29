@@ -1,0 +1,267 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  /* Header Stilovi */
+.header {
+  background-color: #a89f91;
+  backdrop-filter: blur(5px);
+  height: 80px;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed; /* Fiksiran na vrhu */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Da bude iznad ostalog sadržaja */
+}
+
+.logo img{
+  width: 64px;
+}
+
+.user{
+  width: 32px
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links li a {
+  font-family: 'Amatic SC', serif;
+  font-size: 18px;
+  color: #4e342e;
+  text-decoration: none;
+  position:relative;
+  transition: color 0.4s ease;
+}
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0; 
+  height: 2px; 
+  background-color: #2f1f1c; 
+  bottom: -4px; 
+  left: 0;
+  transition: width 0.3s ease; 
+  will-change: width;
+}
+
+.nav-links li a:hover {
+  color: #2f1f1c; 
+}
+.nav-links li a:hover::after {
+  width: 100%; 
+}
+
+/* Hamburger Meni (sakriven na desktopu) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 30px;
+  height: 3px;
+  background-color: #EFEBE9;
+  transition: all 0.3s ease;
+}
+/***************************************************/
+  
+  .hero {
+    background-image: url('../slike/Hero3.jpg');
+    /*animation: changeBackground 5s infinite;*/ 
+    background-size: cover;
+    background-position: center;
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+  /* 5s po slici, ukupno 15s za 3 slike */
+  @keyframes changeBackground {
+    0% { background-image: url('../slike/Hero1.jpg'); }
+  33% { background-image: url('../slike/Hero2.jpeg'); }
+  66% { background-image: url('../slike/Hero3.jpg'); }
+  100% { background-image: url('../slike/Hero1.jpg'); }
+  }
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+  }
+  
+  /* Stilovi za tekst i dugme */
+  .hero h1 {
+    font-family: 'Amatic CS', serif;
+    font-size: 64px;
+    color: #EFEBE9;
+    position: relative; /* Iznad overlay-a */
+    margin-top: 50px;
+  }
+  
+  .hero p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: #EFEBE9;
+    margin: 16px 0;
+    position: relative;
+  }
+  
+  .hero button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    padding: 12px 24px;
+    background-color: #4E342E;
+    color: #EFEBE9;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    margin-top: 64px;
+  }
+  
+  .hero button:hover {
+    background-color: #6D4C41; 
+  }
+
+  /* ABOOOOOOOUT SEKCIJA */
+.about {
+  padding: 120px 32px;
+  
+}
+
+.about h1 {
+  font-size: 56px; /* Veći naslov za moderniji izgled */
+  margin-bottom: 32px;
+}
+
+.about p {
+  font-size: 20px; /* Veći tekst */
+  line-height: 1.8; /* Veći razmak između redova */
+  margin-bottom: 40px;
+}
+
+.about h2 {
+  font-size: 36px; /* Veći podnaslovi */
+  margin-top: 64px;
+  margin-bottom: 24px;
+}
+
+/* Responzivnost */
+@media (max-width: 768px) {
+  .header{
+    height: 70px;
+    padding: 0 24px;
+  }
+  .hero h1 {
+    font-size: 48px;
+  }
+  .hero p {
+    font-size: 20px;
+  }
+  .about {
+    padding: 80px 24px;
+  }
+  .about h1 {
+    font-size: 40px;
+    margin-bottom: 24px;
+  }
+  .about p {
+    font-size: 18px;
+    margin-bottom: 32px;
+  }
+  .about h2 {
+    font-size: 30px;
+    margin-top: 48px;
+    margin-bottom: 16px;
+  }
+}
+
+
+
+/* Responzivnost za mobilni */
+@media (max-width: 375px) {
+  .header {
+    height: 60px; 
+    background: linear-gradient(to bottom, rgba(168, 159, 145, 0.9), rgba(0, 0, 0, 1));
+    padding: 0 16px;
+  }
+
+  .logo img {
+    width: 40px; /* Smanjena veličina loga na mobilnom */
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #A89F91;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .nav-links li a {
+    font-size: 18px;
+  }
+
+  .nav-links li a::after {
+    height: 1.5px;
+    bottom: -2px;
+    transition: width 0.4s ease-in-out;
+    will-change: width;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .user {
+    width: 24px;
+    margin-left: 8px;
+  }
+  .about {
+    padding: 60px 16px;
+  }
+  .about h1 {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+  .about p {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+  .about h2 {
+    font-size: 26px;
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+}
