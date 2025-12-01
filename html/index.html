@@ -14,10 +14,12 @@
     </div>
     <nav class="nav">
       <ul class="nav-links">
-        <li><a href="#home">Početna</a></li>
+        <li><a href="#">Početna</a></li>
         <li><a href="#about">O smeštaju</a></li>
+        <li><a href="#gallery">Galerija</a></li>
         <li><a href="#pricing">Cenovnik</a></li>
         <li><a href="#contact">Kontakt</a></li>
+        <li><a href="#lokacija">Lokacija</a></li>
       </ul>
       <div class="hamburger">
         <span></span>
@@ -40,47 +42,199 @@
 <section class="about" id="about">
   <div>
     <h1>O smeštaju</h1>
-    <p>Dobro došli u vikendice  Kutlešić, vašu oazu mira okruženu planinskim vrhovima i mirisom borovine. Smeštena u podnozju Gradine, naša vikendica pruža savršen spoj udobnosti, mira i avanture sa pogledom koji će vas očarati svakog jutra.</p>
+    <p>Dobro došli u vikendice  Kutlešić, mesto na kome možete osetiti ništa manje nego uživanje u planinskim okolinama i domaćinskim. Smeštena u podnozju Gradine, naša vikendica pruža savršen spoj udobnosti, mira i avanture sa pogledom koji će vas očarati svakog jutra.</p>
     <h2>Prirodno okruženje</h2>
     <p>Okolina vikendica je raj za ljubitelje prirode i avanture.Leti imate priliku da uzivate u planinskim setnjama ili se opustite uz ptičji poj na proplancima., zimi uživajte u vožnji kvadom kroz snežne staze, sankanju ili šetnjama kroz šume prekrivene snegom.</p>
     <h2>Udobnost vikendice za savršen odmor</h2>
     <p>Unutrašnjost kućice odiše toplinom i rustičnim šarmom. Prostrani dnevni boravak sa drvenim nameštajem i kaminom poziva na opuštanje uz knjigu ili topli napitak. Moderna kuhinja, opremljena svim potrebnim, omogućava pripremu domaćih obroka dok uživate u pogledu na snežne pejzaže.</p>
   </div>
   <div>
-    <img class="smestaj-slika" src="../slike/obadvije.JPG" alt="slika obe vikendice uz prirodne cari" />
+    <img class="smestaj-slika" src="../slike/obadvije.webp" alt="slika obe vikendice uz prirodne cari" />
   </div>
 </section>
 <!-- Sekcija "Galerija" -->
-<section class="gallery" id="gallery">
-  <h1>Galerija</h1>
-  <p>Najbolji dokaz lepote naših vikendica – pogledajte prostorije unutar i oko Kućica Kutlešić.</p>
-  <div class="gallery-container">
-    <button class="arrow left-arrow">&#10094;</button>
-    <div class="gallery-images">
-      <div class="gallery-item active">
-        <div class="image-wrapper">
-          <img src="../slike/living-room.jpg" alt="Dnevna soba">
-          <div class="description">Prostrana dnevna soba sa kaminom, idealna za opuštanje uz knjigu.</div>
-        </div>
-        <p class="room-name">Dnevna soba</p>
-      </div>
-      <div class="gallery-item">
-        <div class="image-wrapper">
-          <img src="../slike/kitchen.jpg" alt="Kuhinja">
-          <div class="description">Moderna kuhinja opremljena za sve vaše kulinarske avanture.</div>
-        </div>
-        <p class="room-name">Kuhinja</p>
-      </div>
-      <div class="gallery-item">
-        <div class="image-wrapper">
-          <img src="../slike/terrace.jpg" alt="Terasa">
-          <div class="description">Terasa sa pogledom na planinske vrhove, savršena za jutarnju kafu.</div>
-        </div>
-        <p class="room-name">Terasa</p>
-      </div>
+
+<div class="gallery-container" id="gallery">
+    <!-- Velika slika -->
+    <div class="main-image-wrapper">
+      <img id="mainImage" src="" alt="">
+      <div class="description" id="mainDescription"></div>
     </div>
-    <button class="arrow right-arrow">&#10095;</button>
+    <p class="room-name" id="roomName"></p>
+
+    <!-- Strelice -->
+    <button class="arrow left-arrow" id="prevBtn">❮</button>
+    <button class="arrow right-arrow" id="nextBtn">❯</button>
+
+    <!-- Thumbnail galerija -->
+    <div class="thumbnails" id="thumbnails"></div>
+  </div>
+
+  <!-- Fullscreen overlay -->
+  <div class="fullscreen-overlay" id="fullscreen">
+    <span class="close-fullscreen">✕</span>
+    <img id="fullscreenImg" src="" alt="">
   </div>
 </section>
+
+<section class="pricing" id="pricing">
+  <h1>Cenovnik</h1>
+  <div class="features-cards">
+    <div class="card">
+      <img src="../slike/ikonice/mountain.png" alt="Lokacija ikona">
+      <h3>Lokacija</h3>
+      <p>Smešteni na obroncima planine, okruženi prirodom i tišinom.</p>
+    </div>
+    <div class="card">
+      <img src="../slike/ikonice/parking.png" alt="Parking ikona">
+      <h3>Parking mesto</h3>
+      <p>Privatni parking u sklopu vikendice za vaš automobil.</p>
+    </div>
+    <div class="card">
+      <img src="../slike/ikonice/field.png" alt="Letnjikovac ikona">
+      <h3>Letnjikovac</h3>
+      <p>Uživajte u prostranom letnjikovcu okruženom zelenilom.</p>
+    </div>
+    <div class="card">
+      <img src="../slike/ikonice/wifi.png" alt="Wi-Fi ikona">
+      <h3>Besplatan Wi-Fi</h3>
+      <p>Povežite se sa svetom uz besplatan Wi-Fi tokom boravka.</p>
+    </div>
+  </div>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Smeštaj</th>
+          <th>2 osobe</th>
+          <th>3-4 osobe</th>
+          <th>5-6 osoba</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1 kućica</td>
+          <td>80€/noć</td>
+          <td>100€/noć</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>2 kućice</td>
+          <td>150€/noć</td>
+          <td>-</td>
+          <td>180€/noć</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="notes">Cene uključuju PDV. Minimalni boravak je 2 noći.</p>
+</section>
+<!--<section class="sekcija-kontakt" id="contact">
+  <h1>Kontakt i rezervacije</h1>
+  <div>
+    <div class="kontakt-items">
+      <img />
+      <p></p>
+    </div>
+    <div>
+      <img />
+      <p></p>
+    </div>
+    <h3>Unesite upit</h3>
+    <textarea>Upisite ovde</textarea>
+    <button>Posalji</button>
+  </div>
+</section>-->
+<section class="sekcija-kontakt" id="contact">
+  <h1>Kontakt</h1>
+  
+  <div>
+    <div class="kontakt-items">
+      <img src="/slike/ikonice/phone-call.png" alt="Telefon ikonica">
+      <p>061-151-20-22</p>
+    </div>
+    <div class="kontakt-items">
+      <img src="/slike/ikonice/phone-call.png" alt="Telefon">
+      <p>065-63-666-91</p>
+    </div>
+
+    <!-- Beli karton za rezervaciju 
+    <div>
+      <input type="text" placeholder="CHECK IN   Add Date">
+      <input type="text" placeholder="CHECK OUT   Add Date">
+      <button>Potvrdite</button>
+    </div>-->
+
+    <h3>Unesite ako zelite vise informacija</h3>
+    <textarea placeholder="Upisite ovde"></textarea>
+    <button>Pošalji</button>
+  </div>
+</section>
+
+<section class="lokacija" id="lokacija">
+  <h1 class="lokacija-title">Adresa i lokacija</h1>
+  <div class="lokacija-flex">
+    <img src="/slike/ikonice/home.png" class="icon-lokacija" />
+    
+      <p class="address-full">
+      Šišovići 29<br>
+      31310 Čajetina<br>
+      Srbija
+    </p>
+   
+    
+  </div>
+  <h3 class="naslov-mapa">Kako do nas?</h3>
+  <div class="map-container">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2882.0998574278756!2d19.7269136!3d43.7500231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47582f0078cf7ac7%3A0xaa67b3d5207a4af4!2sVikendice%20Kutlesic!5e0!3m2!1ssr!2srs!4v1764530199767!5m2!1ssr!2srs"
+      width="100%" 
+      height="450" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+  <!--
+  <div class="map-fallback">
+    <a href="https://maps.google.com/maps?q=Vaša+Adresa+Beograd" target="_blank" class="btn-map">
+      Kliknite Ovde - GUGL MAPA SE OTVARA
+    </a>
+  </div>
+-->
+</section>
+
+<footer>
+  <img src="../slike/logo.png"  alt="Slika logoa, Emoji vikendice sa velikim Slovom K na sredini" class="footer-logo"/>
+  <div class="footer-sekcija">
+    <div class="footer-flex">
+      <img src="/slike/ikonice/phone-call.png" alt="ikonica telefona" />
+      <p>061-151-20-22</p>
+    </div>
+    <div class="footer-flex">
+      <img src="/slike/ikonice/phone-call.png" alt="ikonica telefona" />
+      <p>065-63-666-91</p>
+    </div>
+    <div class="footer-flex">
+      <img src="/slike/ikonice/instagram.png" />
+      <a href="https://www.instagram.com/vikendicekutlesic/" 
+         class="contact-link instagram-link">
+         vikendicekutlesic
+      </a>
+    </div>
+  </div>
+  <nav class="nav-footer">
+      <ul class="nav-footer-links">
+        <li><a href="#about">O smeštaju</a></li>
+        <li><a href="#gallery">Galerija</a></li>
+        <li><a href="#pricing">Cenovnik</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+        <li><a href="#lokacija">Lokacija</a></li>
+      </ul>
+    </nav>
+</footer>
+
+<script type="module" src="../js/galerija.js"></script>
 </body>
 </html>
