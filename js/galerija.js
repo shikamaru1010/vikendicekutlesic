@@ -29,7 +29,7 @@ function showImage(index){
 
     currentIndex = index;
 }
-
+/*
 function createThumbnails() {
   thumbnailsContainer.innerHTML = ''; // očisti ako se poziva više puta
   galleryData.forEach((item, i) => {
@@ -45,7 +45,7 @@ function createThumbnails() {
     thumbnailsContainer.appendChild(img);
   });
 }
-
+*/
 // navigacija
 
 prevBtn.addEventListener('click',() =>{
@@ -86,7 +86,7 @@ fullscreen.addEventListener('click', (e) => {
 
 // Inicijalizacija kada se DOM učita
 document.addEventListener('DOMContentLoaded', () => {
-  createThumbnails();
+  /*createThumbnails();*/
   showImage(0);
   startAutoSlide();
 });

@@ -10,7 +10,7 @@
   <!-- Header Meni -->
   <header class="header">
     <div class="logo">
-      <img src="../slike/logo.png"  alt="Slika logoa, Emoji vikendice sa velikim Slovom K na sredini"/>
+      <img src="../slike/ikonice/logo.webp"  alt="Slika logoa, Emoji vikendice sa velikim Slovom K na sredini"/>
     </div>
     <nav class="nav">
       <ul class="nav-links">
@@ -36,17 +36,36 @@
   <section class="hero">
     <h1>Vikendice Kutlešić</h1>
     <p>Planinska čarolija na dohvat ruke</p>
-    <button>Rezervišite sada</button>
+    <div class="rezervacija-dugmad">
+      <div>
+        <a href="tel:+381611512022" class="btn btn-poziv">
+            <i class="fas fa-phone"></i> Pozovite nas
+        </a>
+      </div>
+      <div>
+        
+        <a href="https://wa.me/381601234567?text=Pozdrav%2C%20želeo%20bih%20da%20rezervišem%20termin." 
+           target="_blank" class="btn btn-whatsapp">
+           <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+</div>
   </section>
 
 <section class="about" id="about">
   <div>
     <h1>O smeštaju</h1>
-    <p>Dobro došli u vikendice  Kutlešić, mesto na kome možete osetiti ništa manje nego uživanje u planinskim okolinama i domaćinskim. Smeštena u podnozju Gradine, naša vikendica pruža savršen spoj udobnosti, mira i avanture sa pogledom koji će vas očarati svakog jutra.</p>
-    <h2>Prirodno okruženje</h2>
-    <p>Okolina vikendica je raj za ljubitelje prirode i avanture.Leti imate priliku da uzivate u planinskim setnjama ili se opustite uz ptičji poj na proplancima., zimi uživajte u vožnji kvadom kroz snežne staze, sankanju ili šetnjama kroz šume prekrivene snegom.</p>
+    <p>Vikendice Kutlešić se nalaze u mestu <a href="https://www.cajetina.org.rs/sr/node/915" 
+                                       target="_blank" 
+                                       class="about-vazanTekst" 
+                                       title="Saznaj više o opštini Čajetina">
+        Čajetina
+    </a>koje odiše prirodom i dokaz je kako u trenutno vrlo urbanom vremenu i dalje ima mesta na kojima čovek može da odmori glavu, okružen šumom i prirodom.</p>
+    <h2>Prostorni raspored i kapacitet</h2>
+    <p>Kompletno opremljene vikendice se sastoje od dva nivoa.U prizemlju imamo dnevni boravak, kuhinju, kupatilo i terasu.Na spratu su dve spavaće sobe, jedna soba ima dva solo ležaja.Mogu da prime i do <span class="about-vazanTekst" title="Maksimalan broj osoba po jednoj vikendici">6 osoba</span> po vikendici. </p>
     <h2>Udobnost vikendice za savršen odmor</h2>
-    <p>Unutrašnjost kućice odiše toplinom i rustičnim šarmom. Prostrani dnevni boravak sa drvenim nameštajem i kaminom poziva na opuštanje uz knjigu ili topli napitak. Moderna kuhinja, opremljena svim potrebnim, omogućava pripremu domaćih obroka dok uživate u pogledu na snežne pejzaže.</p>
+    <p>Vikendica odiše toplinom modernog planinskog stila – svetlo drvo na zidovima i plafonima, veliki prozori sa pogledom na prirodu i puno prirodnog svetla.
+    U prizemlju vas dočekuje prostrani dnevni boravak sa velikom ugaonom garniturom okrenutom ka Smart TV-u, potpuno opremljena kuhinja sa trpezarijskim delom,natkrivena terasa koja se nastavlja direktno iz dnevnog boravka.Na spratu su dve spavaće sobe sa panoramskim pogledom.</p>
   </div>
   <div>
     <img class="smestaj-slika" src="../slike/obadvije.webp" alt="slika obe vikendice uz prirodne cari" />
@@ -55,22 +74,16 @@
 <!-- Sekcija "Galerija" -->
 
 <div class="gallery-container" id="gallery">
+  <h1>Galerija</h1>
     <!-- Velika slika -->
     <div class="main-image-wrapper">
       <img id="mainImage" src="" alt="">
       <div class="description" id="mainDescription"></div>
-    </div>
-    <p class="room-name" id="roomName"></p>
-
-    <!-- Strelice -->
-    <button class="arrow left-arrow" id="prevBtn">❮</button>
+      <button class="arrow left-arrow" id="prevBtn">❮</button>
     <button class="arrow right-arrow" id="nextBtn">❯</button>
-
-    <!-- Thumbnail galerija -->
-    <div class="thumbnails" id="thumbnails"></div>
-  </div>
-
-  <!-- Fullscreen overlay -->
+    </div>
+    
+</div>
   <div class="fullscreen-overlay" id="fullscreen">
     <span class="close-fullscreen">✕</span>
     <img id="fullscreenImg" src="" alt="">
@@ -101,72 +114,51 @@
       <p>Povežite se sa svetom uz besplatan Wi-Fi tokom boravka.</p>
     </div>
   </div>
-  <div class="table-wrapper">
-    <table>
+  <!-- PRICING TABELA -->
+  <div class="pricing-table-wrapper">
+    <h3 style="text-align:center; margin-bottom: 10px;">Cene smeštaja po vikendici / noć</h3>
+    <table class="pricing-table">
       <thead>
         <tr>
-          <th>Smeštaj</th>
+          <th>Broj kućica</th>
           <th>2 osobe</th>
-          <th>3-4 osobe</th>
-          <th>5-6 osoba</th>
+          <th>3 - 4 osobe</th>
+          <th>4 - 6 osoba</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1 kućica</td>
-          <td>80€/noć</td>
-          <td>100€/noć</td>
-          <td>-</td>
+        <tr class="highlight">
+          <td><strong>1 kućica</strong></td>
+          <td>50 €</td>
+          <td>70 - 80 €</td>
+          <td>100 - 130 €</td>
         </tr>
-        <tr>
-          <td>2 kućice</td>
-          <td>150€/noć</td>
-          <td>-</td>
-          <td>180€/noć</td>
+        <tr class="highlight">
+        <td><strong>2 kućice</strong><br><small>(popust uključen)</small></td>
+        <td><span class="price big">90 €</span></td>
+        <td><span class="price big">130 € - 150 €</span></td>
+        <td><span class="price big">180 € - 240 €</span></td>
         </tr>
       </tbody>
     </table>
   </div>
   <p class="notes">Cene uključuju PDV. Minimalni boravak je 2 noći.</p>
 </section>
-<!--<section class="sekcija-kontakt" id="contact">
-  <h1>Kontakt i rezervacije</h1>
-  <div>
-    <div class="kontakt-items">
-      <img />
-      <p></p>
-    </div>
-    <div>
-      <img />
-      <p></p>
-    </div>
-    <h3>Unesite upit</h3>
-    <textarea>Upisite ovde</textarea>
-    <button>Posalji</button>
-  </div>
-</section>-->
+
 <section class="sekcija-kontakt" id="contact">
   <h1>Kontakt</h1>
-  
-  <div>
+  <div class="kontakt-elementi">
     <div class="kontakt-items">
       <img src="/slike/ikonice/phone-call.png" alt="Telefon ikonica">
-      <p>061-151-20-22</p>
+      <a href="tel:+381611512022"><p>061-151-20-22</p></a>
     </div>
     <div class="kontakt-items">
       <img src="/slike/ikonice/phone-call.png" alt="Telefon">
-      <p>065-63-666-91</p>
+      <a href="tel:+381656366691"><p>065-63-666-91</p></a>
     </div>
 
-    <!-- Beli karton za rezervaciju 
-    <div>
-      <input type="text" placeholder="CHECK IN   Add Date">
-      <input type="text" placeholder="CHECK OUT   Add Date">
-      <button>Potvrdite</button>
-    </div>-->
-
     <h3>Unesite ako zelite vise informacija</h3>
-    <textarea placeholder="Upisite ovde"></textarea>
+    <textarea placeholder="Kucajte ovde"></textarea>
     <button>Pošalji</button>
   </div>
 </section>
@@ -177,8 +169,8 @@
     <img src="/slike/ikonice/home.png" class="icon-lokacija" />
     
       <p class="address-full">
-      Šišovići 29<br>
-      31310 Čajetina<br>
+      Šišovići 29,
+      31310 Čajetina, 
       Srbija
     </p>
    
@@ -206,7 +198,7 @@
 </section>
 
 <footer>
-  <img src="../slike/logo.png"  alt="Slika logoa, Emoji vikendice sa velikim Slovom K na sredini" class="footer-logo"/>
+  <img src="../slike/ikonice/logo.webp"  alt="Slika logoa, Emoji vikendice sa velikim Slovom K na sredini" class="footer-logo"/>
   <div class="footer-sekcija">
     <div class="footer-flex">
       <img src="/slike/ikonice/phone-call.png" alt="ikonica telefona" />
@@ -235,6 +227,6 @@
     </nav>
 </footer>
 
-<script type="module" src="../js/galerija.js"></script>
+<!--<script type="module" src="../js/galerija.js"></script>-->
 </body>
 </html>
