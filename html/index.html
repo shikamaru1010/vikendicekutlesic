@@ -3,11 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kućice Kutlešić</title>
+  <title>Vikendice Kutlešić - Čajetina, Zlatibor |</title>
+  <meta name="description" content="Vikendice Kutlešić – luksuzne drvene vikendice u Čajetini, odmah pored Zlatibora. Potpuno opremljene, roštilj, parking, wifi. Idealne za odmor porodice ili društva.">
+
+  <meta property="og:title" content="Vikendice Kutlešić – Čajetina, Zlatibor | Drvene vikendice">
+  <meta property="og:description" content="Luksuzne drvene vikendice u Čajetini pored Zlatibora. Potpuno opremljene. Rezervišite svoj odmor!">
+  <meta property="og:type" content="website">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-  <!-- Header Meni -->
   <header class="header">
     <div class="logo">
       <img src="../slike/ikonice/logo.webp"  alt="Slika logoa, Emoji vikendice sa velikim Slovom K na sredini"/>
@@ -32,27 +36,28 @@
     </div> -->
   </header>
 
-  <!-- Hero Sekcija -->
-  <section class="hero">
-    <h1>Vikendice Kutlešić</h1>
-    <p>Planinska čarolija na dohvat ruke</p>
-    <div class="rezervacija-dugmad">
-      <div>
-        <a href="tel:+381611512022" class="btn btn-poziv">
-            <i class="fas fa-phone"></i> Pozovite nas
-        </a>
-      </div>
-      <div>
-        
-        <a href="https://wa.me/381601234567?text=Pozdrav%2C%20želeo%20bih%20da%20rezervišem%20termin." 
-           target="_blank" class="btn btn-whatsapp">
-           <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
-      </div>
-</div>
-  </section>
 
-<section class="about" id="about">
+    <!-- Hero Sekcija -->
+  <section class="hero">
+    <div class="hero-kontejner">
+      <h1>Vikendice Kutlešić</h1>
+      <p>Planinska čarolija na dohvat ruke</p>
+      <div class="rezervacija-dugmad">
+        <div>
+          <a href="tel:+381611512022" class="btn btn-poziv">
+            <i class="fas fa-phone"></i> Pozovite nas
+          </a>
+        </div>
+        <div>
+          <a href="https://wa.me/381611512022?" 
+           target="_blank" class="btn btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+        </div>
+    </div>
+  </section>
+    <!-- O NAMA Sekcija-->
+  <section class="about" id="about">
   <div>
     <h1>O smeštaju</h1>
     <p>Vikendice Kutlešić se nalaze u mestu <a href="https://www.cajetina.org.rs/sr/node/915" 
@@ -70,26 +75,39 @@
   <div>
     <img class="smestaj-slika" src="../slike/obadvije.webp" alt="slika obe vikendice uz prirodne cari" />
   </div>
-</section>
-<!-- Sekcija "Galerija" -->
+  </section>
+    <!-- Sekcija Galerija" -->
+  <section class="gallery-wrapper" id="gallery">
 
-<div class="gallery-container" id="gallery">
-  <h1>Galerija</h1>
-    <!-- Velika slika -->
-    <div class="main-image-wrapper">
-      <img id="mainImage" src="" alt="">
-      <div class="description" id="mainDescription"></div>
-      <button class="arrow left-arrow" id="prevBtn">❮</button>
-    <button class="arrow right-arrow" id="nextBtn">❯</button>
-    </div>
+  <div class="gallery-container">
     
-</div>
-  <div class="fullscreen-overlay" id="fullscreen">
-    <span class="close-fullscreen">✕</span>
-    <img id="fullscreenImg" src="" alt="">
-  </div>
-</section>
+    <!-- Strelice -->
+    <button class="gallery-btn prev" aria-label="Prethodna slika">‹</button>
+    <button class="gallery-btn next" aria-label="Sledeća slika">›</button>
 
+    <!-- Slides -->
+   <div class="gallery-track">
+      <img src="/slike/galerija/2.webp" alt="slika dve vikendice" data-desc="Dve 'planinske' vikendice, potpuno opremljene svim neophodnim stvarima." loading="eager">
+      <img src="/slike/galerija/2saparkingom.webp" alt="2 vikendice sa parkingom "      data-desc="Ispred vikendica se nalazi parking koji mozete koristiti za ostavljanje automobila." loading="lazy">
+      <img src="/slike/galerija/ulaz.webp" alt="Ulaz ugao na trpezariju" data-desc="Ovako izgleda pogled sa ulaza u vikendicu iz hodnika. " loading="lazy">
+      <img src="/slike/galerija/dnevnaiteras.webp" alt="Trpezarija" data-desc="Trpezarija sa velikom ugaonom garniturom i koznom foteljom uz elegenatni sto." loading="lazy">
+      <img src="/slike/galerija/detalji.webp" alt="Pogled trpezarije iz ugla fokusa detalja na trpezarijskom stolu" data-desc="Detaljno ukrasen sto." loading="lazy">
+      <img src="/slike/galerija/teras.webp" alt="Pogled sa terase na ono sto sadrzi i pogled iza" data-desc="Pogled sa terase koji odise prirodom." loading="lazy">
+      <img src="/slike/galerija/kujna.webp" alt="slika kuhinje i kuhinjskog stola" data-desc="Na dohvat ruke se nalazi i nova potpuno opremljena kuhinja sa stolom za 4 osobe." loading="lazy">
+      <img src="/slike/galerija/wc.webp" alt="Toalet" data-desc="Toalet sadrzi tus kabinu kao i sve neophodne elemente." loading="lazy">
+      <img src="/slike/galerija/sobadvakreveta.webp" alt="Spavaca soba na spratu sa dva manja kreveta" data-desc="Spavaca soba na spratu sa dva solo lezaja i ormanom za odecu" loading="lazy">
+      <img src="/slike/galerija/sobafrancuz3.webp" alt="Velika sapvaca soba sa francuskim lezajem" data-desc="Velika spavaca soba sa francuskim lezajem, orman za stvari i prelep pogled na Gaj" loading="lazy">
+      <img src="/slike/galerija/sastraneobe.webp" alt="slika obe vikendice sa strane" data-desc="Slika vikendica sa strane" loading="lazy">
+      <img src="/slike/galerija/pticja.webp" alt="slika iz pticje perspektive" data-desc="Pogled na vikendice i Čajetinu iz ptičje perspektive" loading="lazy">
+    </div>
+
+    <!-- Caption traka na dnu -->
+    <div class="gallery-caption" aria-live="polite"></div>
+  </div>
+</section>   
+
+
+<!-- Sekcija Cene i prednost" -->
 <section class="pricing" id="pricing">
   <h1>Cenovnik</h1>
   <div class="features-cards">
@@ -104,7 +122,7 @@
       <p>Privatni parking u sklopu vikendice za vaš automobil.</p>
     </div>
     <div class="card">
-      <img src="../slike/ikonice/field.png" alt="Letnjikovac ikona">
+      <img src="../slike/ikonice/field.webp" alt="Letnjikovac ikona">
       <h3>Letnjikovac</h3>
       <p>Uživajte u prostranom letnjikovcu okruženom zelenilom.</p>
     </div>
@@ -144,7 +162,7 @@
   </div>
   <p class="notes">Cene uključuju PDV. Minimalni boravak je 2 noći.</p>
 </section>
-
+<!-- Sekcija kontakt-->
 <section class="sekcija-kontakt" id="contact">
   <h1>Kontakt</h1>
   <div class="kontakt-elementi">
@@ -162,11 +180,11 @@
     <button>Pošalji</button>
   </div>
 </section>
-
+<!-- Sekcija lokacija-->
 <section class="lokacija" id="lokacija">
   <h1 class="lokacija-title">Adresa i lokacija</h1>
   <div class="lokacija-flex">
-    <img src="/slike/ikonice/home.png" class="icon-lokacija" />
+    <img src="/slike/ikonice/home.png" class="icon-lokacija" alt="ikonica kucice u braon boji"/>
     
       <p class="address-full">
       Šišovići 29,
@@ -177,7 +195,7 @@
     
   </div>
   <h3 class="naslov-mapa">Kako do nas?</h3>
-  <div class="map-container">
+  <div class="map-container" title="Mapa kako do nas">
     <iframe 
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2882.0998574278756!2d19.7269136!3d43.7500231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47582f0078cf7ac7%3A0xaa67b3d5207a4af4!2sVikendice%20Kutlesic!5e0!3m2!1ssr!2srs!4v1764530199767!5m2!1ssr!2srs"
       width="100%" 
@@ -209,7 +227,7 @@
       <p>065-63-666-91</p>
     </div>
     <div class="footer-flex">
-      <img src="/slike/ikonice/instagram.png" />
+      <img src="/slike/ikonice/instagram.png" alt="ikonica drustvene mreze instagram"/>
       <a href="https://www.instagram.com/vikendicekutlesic/" 
          class="contact-link instagram-link">
          vikendicekutlesic
@@ -227,6 +245,6 @@
     </nav>
 </footer>
 
-<!--<script type="module" src="../js/galerija.js"></script>-->
+<script type="module" src="../js/galerija.js"></script>
 </body>
 </html>
