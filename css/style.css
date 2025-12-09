@@ -783,3 +783,77 @@ footer{
 .nav-footer-links li a:hover{
   cursor: pointer;
 }
+
+/* ===================== MOBILE-FIRST RESPONSIVE ===================== */
+
+/* Hamburger – prikazujemo samo na mobilnom */
+.hamburger { display: flex; }
+.nav { display: none; }                           /* sakriven na mobilnom */
+.nav.active { display: block; }
+
+/* Mobilni meni stilovi */
+.nav.active {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(78, 52, 46, 0.98);   /* #4E342E tamno braon */
+  padding: 30px 20px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  animation: slideDown 0.4s ease-out;
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.nav-links { flex-direction: column; gap: 20px; }
+.nav-links li a { font-size: 22px; color: #EFEBE9; }
+
+/* Hamburger animacija → X */
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+
+/* Osnovni mobilni stilovi (smanjujemo sve) */
+.hero h1 { font-size: 38px; margin-top: 40%; }
+.hero p { font-size: 18px; }
+.rezervacija-dugmad { flex-direction: column; }
+.about { flex-direction: column; padding: 80px 20px; }
+.about > div:first-child { height: auto; }
+.smestaj-slika { height: 300px; object-fit: cover; }
+.features-cards { flex-direction: column; }
+.card { width: 100%; max-width: 350px; margin: 0 auto 30px; }
+.pricing-table th,
+.pricing-table td { font-size: 14px; padding: 10px 6px; }
+.gallery-container { height: 280px; }
+.map-container iframe { height: 320px; }
+footer { flex-direction: column; text-align: center; gap: 40px; }
+
+/* ===================== TABLET I VEĆI EKRANI ===================== */
+@media (min-width: 768px) {
+  .hamburger { display: none; }
+  .nav { display: block; }
+  .nav-links { flex-direction: row; gap: 24px; }
+  .nav-links li a { font-size: 18px; color: #4e342e; }
+
+  .hero h1 { font-size: 64px; margin-top: 20%; }
+  .rezervacija-dugmad { flex-direction: row; }
+  .about { flex-direction: row; padding: 120px 64px; gap: 40px; }
+  .about > div:first-child { height: 540px; }
+  .smestaj-slika { height: 100%; }
+  .features-cards { flex-direction: row; justify-content: center; flex-wrap: wrap; }
+  .card { width: 280px; }
+  .gallery-container { height: 500px; }
+  .map-container iframe { height: 450px; }
+  footer { flex-direction: row; text-align: left; gap: 100px; }
+}
+
+@media (min-width: 1024px) {
+  .card { width: 300px; }
+  .gallery-wrapper { max-width: 1100px; }
+}
+
+@media (min-width: 1440px) {
+  /* sve što je već bilo u originalnom CSS-u ostaje */
+}

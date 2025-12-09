@@ -19,3 +19,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   /*setInterval(() => showSlide(index + 1), 6000);*/
 })
+
+
+
+
