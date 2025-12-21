@@ -9,7 +9,11 @@
   <meta property="og:title" content="Vikendice Kutlešić – Čajetina, Zlatibor | Drvene vikendice">
   <meta property="og:description" content="Luksuzne drvene vikendice u Čajetini pored Zlatibora. Potpuno opremljene. Rezervišite svoj odmor!">
   <meta property="og:type" content="website">
+  
   <link rel="stylesheet" href="../css/style.css">
+ 
+
+  
 </head>
 <body>
   <header class="header">
@@ -25,11 +29,16 @@
         <li><a href="#contact">Kontakt</a></li>
         <li><a href="#lokacija">Lokacija</a></li>
       </ul>
-      <!--<div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>-->
+      <button 
+  class="hamburger" 
+  type="button"
+  aria-label="Otvori glavni meni"
+  aria-expanded="false"
+  aria-controls="nav-links">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
     </nav>
     <!--<div>
       <img class="user" src="../slike/user.png"  alt="User Emoji"/>
@@ -68,13 +77,13 @@
     </a>koje odiše prirodom i dokaz je kako u trenutno vrlo urbanom vremenu i dalje ima mesta na kojima čovek može da odmori glavu, okružen šumom i prirodom.</p>
     <h2>Udobnost vikendice za savršen odmor</h2>
     <p>Vikendica odiše toplinom modernog planinskog stila – svetlo drvo na zidovima i plafonima, veliki prozori sa pogledom na prirodu i puno prirodnog svetla.
-    U prizemlju vas dočekuje prostrani dnevni boravak,potpuno opremljena kuhinja sa trpezarijskim delom,natkrivena terasa koja se nastavlja direktno iz dnevnog boravka.Na spratu su dve spavaće sobe sa panoramskim pogledom.</p>
+    U prizemlju vas dočekuje prostrani dnevni boravak sa potpuno opremljenom kuhinjom , natkrivena terasa koja se nastavlja direktno iz dnevnog boravka. Na spratu su dve spavaće sobe sa panoramskim pogledom.</p>
     <h2>Prostorni raspored i kapacitet</h2>
     
     <p>Kompletno opremljene vikendice se sastoje od dva nivoa.U prizemlju imamo dnevni boravak, kuhinju, kupatilo i terasu.Na spratu su dve spavaće sobe, jedna soba ima dva solo ležaja.Mogu da prime i do <span class="about-vazanTekst" title="Maksimalan broj osoba po jednoj vikendici">6 osoba</span> po vikendici. </p>
   </div>
   <div>
-    <img class="smestaj-slika" src="../slike/obadvije.webp" alt="slika obe vikendice uz prirodne cari" />
+    <img class="smestaj-slika" src="../slike/galerija/about.webp" alt="slika obe vikendice uz prirodne cari" />
   </div>
   </section>
     <!-- Sekcija Galerija" -->
@@ -90,7 +99,7 @@
   
       <!-- Slides -->
      <div class="gallery-track">
-        <img src="/slike/galerija/2.webp" alt="slika dve vikendice" data-desc="Dve 'planinske' vikendice, potpuno opremljene svim neophodnim stvarima." loading="eager">
+        <img src="/slike/galerija/priroda.webp" alt="slika dve vikendice" data-desc="Dve 'planinske' vikendice, potpuno opremljene svim neophodnim stvarima." loading="eager">
         <img src="/slike/galerija/2saparkingom.webp" alt="2 vikendice sa parkingom "      data-desc="Ispred vikendica se nalazi parking koji mozete koristiti za ostavljanje automobila." loading="lazy">
         <img src="/slike/galerija/ulaz.webp" alt="Ulaz ugao na trpezariju" data-desc="Ovako izgleda pogled sa ulaza u vikendicu iz hodnika. " loading="lazy">
         <img src="/slike/galerija/dnevnaiteras.webp" alt="Trpezarija" data-desc="Trpezarija sa velikom ugaonom garniturom i koznom foteljom uz elegenatni sto." loading="lazy">
@@ -107,6 +116,10 @@
       <!-- Caption traka na dnu -->
       <div class="gallery-caption" aria-live="polite"></div>
     </div>
+
+    <!-- fullscreen GALERIJA -->
+
+
   </div>
 </section>   
 
@@ -179,16 +192,28 @@
       <a href="tel:+381656366691"><p>065-63-666-91</p></a>
     </div>
 
-    <h2>Unesite ako zelite vise informacija</h2>
+    <!--<h2>Unesite ako zelite vise informacija</h2>
     <textarea placeholder="Kucajte ovde"></textarea>
-    <button>Pošalji</button>
+    <button>Pošalji</button>-->
+    <h2>Unesite za vise informacija</h2>
+    <form action="https://formspree.io/f/mayrgwjb" method="POST" id="contactForm">
+  <input type="text" name="ime" placeholder="Ime i prezime" required>
+  <input type="email" name="email" placeholder="tvoj@mail.com" required>
+  <textarea name="poruka" rows="5" placeholder="Vaša poruka..." required></textarea>
+  
+  <button type="submit">Pošalji poruku</button>
+  </form>
+  <div id="success" style="display:none; color:green; margin-top:10px;">
+  Hvala! Poruka je poslata, javiću vam se uskoro ✨
+  </div>
+
   </div>
 </section>
 <!-- Sekcija lokacija-->
 <section class="lokacija" id="lokacija">
   <h1 class="lokacija-title">Adresa i lokacija</h1>
+  
   <div class="lokacija-flex">
-    <img src="/slike/ikonice/home.png" class="icon-lokacija" alt="ikonica kucice u braon boji"/>
     
       <p class="address-full">
       Šišovići 29,
@@ -198,6 +223,7 @@
    
     
   </div>
+  
   <h2 class="naslov-mapa">Kako do nas?</h2>
   <div class="map-container" title="Mapa kako do nas">
     <iframe 
@@ -243,14 +269,14 @@
       <ul class="nav-footer-links">
         <li><a href="#about">O smeštaju</a></li>
         <li><a href="#gallery">Galerija</a></li>
-        <li><a href="#pricing">Cenovnik</a></li>
+        <li><a href="#pogodnosti">Pogodnosti</a></li>
         <li><a href="#contact">Kontakt</a></li>
         <li><a href="#lokacija">Lokacija</a></li>
       </ul>
     </nav>
 </footer>
 
-<script type="module" src="../js/galerija.js"></script>
-<script type="module" src="../js/navigation.js"></script>
+<script type="module" src="../js/galerija.js" defer></script>
+<script type="module" src="../js/navigation.js" defer></script>
 </body>
 </html>

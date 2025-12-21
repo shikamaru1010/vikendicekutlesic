@@ -4,6 +4,8 @@
     padding: 0;
     box-sizing: border-box;
   }
+
+ 
   /* Header Stilovi */
 .header {
   background: linear-gradient(to bottom, rgba(168, 159, 145, 0.8), rgba(255, 255, 255, 0.5));;
@@ -24,9 +26,9 @@
   width: 64px;
 }
 
-.user{
+/*.user{
   width: 32px
-}
+}*/
 
 .nav-links {
   list-style: none;
@@ -61,19 +63,48 @@
   width: 100%; 
 }
 
-/* Hamburger Meni (sakriven na desktopu) */
+/* Hamburger dugme – vidljivo samo na mobitelu/tabletu */
 .hamburger {
-  display: none;
+  display: none;                  /* sakriven na desktopu */
   flex-direction: column;
-  gap: 5px;
+  justify-content: center;
+  gap: 6px;
+  background: none;               /* ukloni default button pozadinu */
+  border: none;                   /* ukloni border */
+  padding: 10px;                  /* prostor za lakše tapkanje */
   cursor: pointer;
+  border-radius: 6px;             /* opcionalno, lijepo zaokruženje */
+  transition: background 0.2s ease;
 }
 
 .hamburger span {
+  display: block;
   width: 30px;
   height: 3px;
   background-color: #EFEBE9;
+  border-radius: 2px;
   transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Fokus stil za pristupačnost (tastatura) */
+.hamburger:focus-visible {
+  outline: 2px solid #EFEBE9;
+  outline-offset: 4px;
+  background: rgba(239, 235, 233, 0.2);
+}
+
+/* Animacija u "X" kada je menu otvoren */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 /***************************************************/
   
@@ -81,6 +112,7 @@
     background-image: url('../slike/galerija/odozdo.webp');
     background-size: cover;
     background-position: center;
+    max-width: 100%;
     height: 100vh;
     
   }
@@ -102,19 +134,21 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    
-    
-    
+    align-items: center;    
+  }
+  body{
+    overflow-x: hidden;
   }
 
   /* Stilovi za tekst i dugme */
   .hero h1 {
-    font-family: 'Amatic CS', serif;
-    font-size: 64px;
-    color: #EFEBE9;
-     
-    margin-top: 20%;
+   font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.5rem, 5vw, 4rem); 
+  margin-top: 300px; 
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
   }
   
   .hero p {
@@ -325,7 +359,7 @@
   transform: translateY(-50%);
   width: 50px;
   height: 50px;
-  background: rgba(239,235,233,0.9);
+  background: rgba(239,235,233,0.4);
   border: none;
   border-radius: 50%;
   font-size: 28px;
@@ -336,7 +370,7 @@
 }
 
 .gallery-btn:hover {
-  background: #EFEBE9;
+  background: rgba(239,235,233,0.6);
   transform: translateY(-50%) scale(1.1);
 }
 
@@ -356,6 +390,7 @@
   font-size: 1.1rem;
   transition: opacity 0.4s;
 }
+
 
 /* CENOVNIK I PREDNOSTI */
 
@@ -493,7 +528,8 @@
   .big {
     font-size: 1.7em !important;
     color: #d4a574;
-  }/*
+  }
+  /*
 .advantages {
   margin-top: 64px;
 }
@@ -536,15 +572,17 @@
   max-width: 100%;
   height: 100vh;
   padding: 40px 30px;
-  background-color: #a89f90;
+  background-color: #A89F91;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #4E342E;
 }
 .kontakt-elementi{
   max-width: 720px;
   margin: 0 auto;
+}
+.kontakt-elementi h2{
+  color: white;
 }
 
 .sekcija-kontakt > h1 {
@@ -552,7 +590,7 @@
   font-size: 42px;
   font-weight: 700;
   margin-bottom: 35px;
-  color: #4E342E;
+  color: white;
 }
 
 /* Dva telefona */
@@ -571,7 +609,7 @@
 }
 
 .kontakt-items p{
-  color: #8B5C4A;
+  color: white;
 }
 
 .kontakt-items p:hover{
@@ -582,7 +620,10 @@
   width: 36px;
   height: 36px;
 }
-
+#contactForm input, textarea, button {
+      width:30%; padding:12px; margin:10px 0; border:2px solid #c1ad8c; border-radius:8px; font-size:16px;
+      box-sizing:border-box;
+    }
 /* Dugme Potvrdite */
 .sekcija-kontakt button:first-of-type {
   align-self: center;
@@ -614,11 +655,11 @@
 /* Textarea */
 .sekcija-kontakt textarea {
   width: 100%;
-  height: 300px;
+  
   padding: 20px;
   border: none;
   border-radius: 20px;
-  background-color: #c1ad8c;
+  /*background-color: #c1ad8c;*/
   resize: none;
   font-family: inherit;
   font-size: 16px;
@@ -792,122 +833,377 @@ footer{
   cursor: pointer;
 }
 
-/* ===================== MOBILE-FIRST RESPONSIVE ===================== */
 
-/* Hamburger – prikazujemo samo na mobilnom */
-.hamburger { display: flex; }
-.nav { display: none; }                           /* sakriven na mobilnom */
-.nav.active { display: block; }
 
-/* Mobilni meni stilovi */
-.nav.active {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background: rgba(78, 52, 46, 0.98);   /* #4E342E tamno braon */
-  padding: 30px 20px;
-  text-align: center;
-  backdrop-filter: blur(10px);
-  animation: slideDown 0.4s ease-out;
-}
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.nav-links { flex-direction: column; gap: 20px; }
-.nav-links li a { font-size: 22px; color: #EFEBE9; }
 
-/* Hamburger animacija → X */
-.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
-.hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+/* RESPONZIVNOSTTT */
 
-/* Osnovni mobilni stilovi (smanjujemo sve) */
-.hero h1 { font-size: 38px; margin-top: 40%; }
-.hero p { font-size: 18px; }
-.rezervacija-dugmad { flex-direction: column; }
-.about { flex-direction: column; padding: 80px 20px; }
-.about > div:first-child { height: auto; }
 
-.features-cards { flex-direction: column; }
-.card { width: 100%; max-width: 350px; margin: 0 auto 30px; }
-.pricing-table th,
-.pricing-table td { font-size: 14px; padding: 10px 6px; }
-.gallery-container { height: 280px; }
-.map-container iframe { height: 320px; }
-footer { flex-direction: row; text-align: center; gap: 40px; }
-
-@media (max-width:530px){
-  .smestaj-slika{
-    width: 350px;
-    height: 300px;
+/* ======================================== */
+/* MOBILE – do 767px (bazni za mobitele)    */
+/* ======================================== */
+@media (max-width: 767px) {
+  /* Header – hamburger menu */
+  .hamburger {
+    display: flex; /* prikaži hamburger */
   }
-  .header{
-    background: linear-gradient(to bottom, rgba(168, 159, 145, 0.00), rgba(255, 255, 255, 0.0));
-  }
-  footer{
+
+  .nav-links {
+    position: fixed;
+    top: 80px;              /* ispod fiksnog headera */
+    left: -100%;            /* sakriven lijevo */
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: linear-gradient(to bottom, rgba(168, 159, 145, 0.95), rgba(168, 159, 145, 0.85));
+    backdrop-filter: blur(10px);
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 10px;
+    gap:0;
+    transition: left 0.4s ease;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    left: 0; /* otvori menu */
+  }
+
+  .nav-links li {
+    margin: 20px 0;
+  }
+
+  .nav-links li a {
+    font-size: 28px; /* veći linkovi za lakše tapkanje */
+  }
+
+  /* Hero sekcija */
+  .hero h1 {
+    font-size: 32px;
+    margin-top: 60%;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .hero p {
+    font-size: 18px;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .rezervacija-dugmad {
+    flex-direction: column;
     align-items: center;
   }
-}
-/* ===================== TABLET I VEĆI EKRANI ===================== */
 
-  .hamburger { display: none; }
-  .nav { display: block; }
-  .nav-links { flex-direction: row; gap: 24px; }
-  .nav-links li a { font-size: 18px; color: #4e342e; }
-
-  .hero h1 { font-size: 64px; margin-top: 20%; }
-  .rezervacija-dugmad { flex-direction: row; }
-  .about { flex-direction: row; padding: 120px 64px; gap: 40px; }
-  
-  .about > div:first-child { height: 540px; }
-  
-  .features-cards { flex-direction: row; justify-content: center; flex-wrap: wrap; gap:20px}
-  .card { width: 280px; }
-  .gallery-container { height: 500px; }
-  .map-container iframe { height: 450px; }
-  footer { flex-direction: row; text-align: left; gap: 100px; }
-
-  .gallery-wrapper{
-    
-    height: 100%;
-  }
-  .kontakt-elementi h2{
-    margin-bottom: 12px;
+  .btn {
+    /*width: 80%;*/
+    max-width: 300px;
+    justify-content: center;
+    padding: 12px 18px;
+    font-size: 16px;
   }
 
-@media (min-width: 768px) and (max-width:1030px){
-  .smestaj-slika { 
-  width: 300px;}
-  .smestaj-slika { width: 500px;
-  height: 100%; object-fit: cover; }
-  .about{
+  /* About sekcija */
+  .about {
     flex-direction: column;
+    padding: 80px 20px;
+    gap: 40px;
+  }
+
+  .about > div {
+    height: auto;
+  }
+
+  .about h1 {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .about h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  /* Galerija */
+  .galerija h1 {
+    font-size: 42px;
+    padding: 0 20px;
+  }
+
+  .gallery-wrapper {
+    max-width: 95%;
+    margin: 20px auto;
+    padding: 8px;
+  }
+
+  .gallery-container {
+    height: 280px;
+  }
+  .gallery-track img{
+    max-width: 60%;
+  }
+  .gallery-caption{
+    padding: 5px 15px;
+    font-size: 1rem;
+  }
+
+  .gallery-btn {
+    width: 40px;
+    top: 40%;
+    border-radius: 30%;
+    font-size: 24px;
+  }
+
+  /* Pogodnosti – kartice */
+  .pricing h1 {
+    font-size: 42px;
+    padding: 0 20px;
+  }
+
+  .features-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .card {
+    /*width: 90%;*/
+    max-width: 350px;
+  }
+
+  /* Kontakt */
+  .sekcija-kontakt {
+    padding: 40px 20px;
+    height: auto;
+  }
+
+  .sekcija-kontakt h1 {
+    font-size: 36px;
+  }
+
+  .kontakt-items {
+    justify-content: center;
+  }
+
+  #contactForm input,
+  #contactForm textarea{
+    width: 100%;
+    background-color: white;
+  }
+
+  #contactForm button{
+    background-color: white;
+    color: #4E342E;
+  }
+
+  /* Lokacija */
+  .lokacija {
+    padding: 60px 20px;
+  }
+
+  .lokacija-title {
+    font-size: 36px;
+  }
+
+  .address-full {
+    font-size: 24px;
+  }
+
+  .naslov-mapa {
+    font-size: 24px;
+  }
+
+  /* Footer */
+  footer {
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 20px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .nav-footer ul {
+    display: none;
+  }
+}
+
+/* ======================================== */
+/* TABLET – 768px do 1023px                 */
+/* ======================================== */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hamburger {
+    display: flex; /*za mobilni i tablet */
+  }
+
+  /* Nav ostaje sakriven kao na mobitelu – koristi isti stil iz mobile */
+  /*.nav-links {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: linear-gradient(to bottom, rgba(168, 159, 145, 0.95), rgba(168, 159, 145, 0.85));
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 80px;
+    transition: left 0.4s ease;
+    z-index: 999;
+  }*/
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100vw;
+    height: 65vh;
+    background: linear-gradient(to bottom, rgba(168, 159, 145, 0.98), rgba(168, 159, 145, 0.95));
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 10%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 999;
+     
+  }
+
+  /* Kada je aktivan – prikaži overlay */
+  .nav-links.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  /* Linkovi – ISTI stilovi kao na desktopu, ali veći za mobitel */
+  .nav-links li {
+    margin: 0;
+  }
+
+  .nav-links li a {
+    font-family: 'Amatic SC', serif;
+    font-size: 36px; /* veće nego na desktopu – lakše tapkanje */
+    color: #4E342E;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.4s ease;
+  }
+
+  /* Potpuno isti underline hover efekat kao na desktopu */
+  .nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px; /* malo deblji za mobitel */
+    background-color: #2f1f1c;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.4s ease;
+  }
+
+  .nav-links li a:hover,
+  .nav-links li a:focus { /* fokus za pristupačnost */
+    color: #2f1f1c;
+  }
+
+  .nav-links li a:hover::after,
+  .nav-links li a:focus::after {
+    width: 80%; /* ne 100% – ljepše izgleda centrirano */
+  }
+
+  /*.nav-links.active {
+    left: 0;
+  }*/
+
+  /*.nav-links li a {
+    font-size: 32px;
+  }*/
+
+  .hero h1 {
+    font-size: 56px;
+  }
+
+  .about {
+    flex-direction: column;
+    padding: 100px 40px;
+  }
+  .about > div{
+    max-width: 100%;
+    height: 50%;
   }
   .smestaj-slika{
-    width: 750px;
-    margin: 0 auto;
+    max-width: 100%;
+    height: 100%;
+
   }
-}
-@media (min-width: 890px ) and (max-width: 1300px) {
-  
-  .gallery-wrapper{
-    margin: 80px;
+  .gallery-track img{
+    max-width: 80%;
   }
+
   .features-cards {
-    flex-wrap: wrap;              /* dozvoli prelamanje */
-    justify-content: center;      /* centriraj ako ima prostora */
-    gap: 30px;                    /* lepi razmak */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
   }
+
   .card {
-    flex: 0 1 calc(50% - 30px);    /* tačno 2 po redu, sa gap-om */
-    max-width: 420px;             /* da ne budu preširoke */
+    width: 45%;
+    max-width: 350px;
+  }
+
+  footer {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
   }
 }
 
-@media (min-width: 1330px) {
-  /* sve što je već bilo u originalnom CSS-u ostaje */
+/* ======================================== */
+/* DESKTOP – 1024px i više                  */
+/* ======================================== */
+@media (min-width: 1024px) {
+  /* Na desktopu – hamburger sakriven, nav vidljiv horizontalno */
+  .hamburger {
+    display: none;
+  }
+/*
+  .nav-links {
+    position: static;
+    display: flex;
+    background: none;
+    backdrop-filter: none;
+    flex-direction: row;
+    padding-top: 0;
+    height: auto;
+    transition: none;
+  }
+    */
+    .nav-links {
+    position: static;
+    width: auto;
+    height: auto;
+    background: none;
+    backdrop-filter: none;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    padding: 0;
+    transition: none;
+  }
+  
+  .about{
+    flex-direction:row;
+  }
+
+  /* Tvoj originalni desktop izgled se vraća automatski */
 }

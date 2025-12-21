@@ -1,17 +1,23 @@
-document.addEventListener('DOMContentLoaded',() => {
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('.nav');
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
 
-    hamburger.addEventListener('click',function(){
-        hamburger.classList.toggle('active');
-        nav.classList.toggle('active');
+  hamburger.addEventListener('click', () => {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    
+    // Ažuriraj ARIA
+    hamburger.setAttribute('aria-expanded', !expanded);
+  });
+
+  // Zatvaranje menija klikom na link
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
     });
-
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () =>{
-            hamburger.classList.remove('active');
-            nav.classList.remove('active');
-        })
-    })
-
-})
+  });
+});
