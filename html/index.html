@@ -11,8 +11,14 @@
   <meta property="og:type" content="website">
   
   <link rel="stylesheet" href="../css/style.css">
- 
 
+
+  <!-- ... ostali tagovi ... -->
+  <link rel="preload" as="image" href="/slike/galerija/priroda.webp" media="(min-width: 769px)">
+  <link rel="preload" as="image" href="/slike/galerija/priroda-small.webp" media="(max-width: 768px)">
+
+ 
+  
   
 </head>
 <body>
@@ -83,8 +89,22 @@
     <p>Kompletno opremljene vikendice se sastoje od dva nivoa.U prizemlju imamo dnevni boravak, kuhinju, kupatilo i terasu.Na spratu su dve spavaće sobe, jedna soba ima dva solo ležaja.Mogu da prime i do <span class="about-vazanTekst" title="Maksimalan broj osoba po jednoj vikendici">6 osoba</span> po vikendici. </p>
   </div>
   <div>
-    <img class="smestaj-slika" src="../slike/galerija/about.webp" alt="slika obe vikendice uz prirodne cari" />
-  </div>
+<picture>
+  <source 
+    media="(max-width: 768px)" 
+    srcset="../slike/galerija/about-small.webp" 
+    type="image/webp">
+  <source 
+    media="(min-width: 769px)" 
+    srcset="../slike/galerija/about.webp" 
+    type="image/webp">
+  <img 
+    class="smestaj-slika"
+    src="../slike/galerija/about.webp"
+    alt="slika obe vikendice uz prirodne cari"
+   
+    loading="lazy">             
+</picture>  </div>
   </section>
     <!-- Sekcija Galerija" -->
   <section class="galerija" id="gallery">
@@ -99,16 +119,40 @@
   
       <!-- Slides -->
      <div class="gallery-track">
-        <img src="/slike/galerija/priroda.webp" alt="slika dve vikendice" data-desc="Dve 'planinske' vikendice, potpuno opremljene svim neophodnim stvarima." loading="eager">
-        <img src="/slike/galerija/2saparkingom.webp" alt="2 vikendice sa parkingom "      data-desc="Ispred vikendica se nalazi parking koji mozete koristiti za ostavljanje automobila." loading="lazy">
-        <img src="/slike/galerija/ulaz.webp" alt="Ulaz ugao na trpezariju" data-desc="Ovako izgleda pogled sa ulaza u vikendicu iz hodnika. " loading="lazy">
-        <img src="/slike/galerija/dnevnaiteras.webp" alt="Trpezarija" data-desc="Trpezarija sa velikom ugaonom garniturom i koznom foteljom uz elegenatni sto." loading="lazy">
-        <img src="/slike/galerija/detalji.webp" alt="Pogled trpezarije iz ugla fokusa detalja na trpezarijskom stolu" data-desc="Detaljno ukrasen sto." loading="lazy">
-        <img src="/slike/galerija/teras.webp" alt="Pogled sa terase na ono sto sadrzi i pogled iza" data-desc="Pogled sa terase koji odise prirodom." loading="lazy">
-        <img src="/slike/galerija/kujna.webp" alt="slika kuhinje i kuhinjskog stola" data-desc="Na dohvat ruke se nalazi i nova potpuno opremljena kuhinja sa stolom za 4 osobe." loading="lazy">
-        <img src="/slike/galerija/wc.webp" alt="Toalet" data-desc="Toalet sadrzi tus kabinu kao i sve neophodne elemente." loading="lazy">
-        <img src="/slike/galerija/sobadvakreveta.webp" alt="Spavaca soba na spratu sa dva manja kreveta" data-desc="Spavaca soba na spratu sa dva solo lezaja i ormanom za odecu" loading="lazy">
-        <img src="/slike/galerija/sobafrancuz3.webp" alt="Velika sapvaca soba sa francuskim lezajem" data-desc="Velika spavaca soba sa francuskim lezajem, orman za stvari i prelep pogled na Gaj" loading="lazy">
+
+        <picture>
+            <source 
+              media="(max-width: 768px)" 
+              srcset="/slike/galerija/priroda-small.webp" 
+              type="image/webp">
+            <source 
+              media="(min-width: 769px)" 
+              srcset="/slike/galerija/priroda.webp" 
+              type="image/webp">
+            <img 
+              src="/slike/galerija/priroda.webp" 
+              alt="Pogled sa ulaza na brdovit predeo" 
+              data-desc="Priroda i društvo" 
+              loading="eager"
+              style="cursor: pointer;">
+        </picture>
+        <picture>
+            <source media="(max-width: 768px)" srcset="/slike/galerija/2saparkingom-small.webp">
+            <source media="(min-width: 769px)" srcset="/slike/galerija/2saparkingom.webp">
+            <img src="/slike/galerija/2saparkingom.webp"
+                alt="2 vikendice sa parkingom"
+                data-desc="Parking se nalazi odmah do vikendica." 
+                loading="lazy"
+                style="cursor: pointer;">
+        </picture>
+        <img src="/slike/galerija/ulaz.webp" alt="Ulaz ugao na trpezariju" data-desc="Zavirite u vaš novi omiljeni dom. " loading="lazy">
+        <img src="/slike/galerija/dnevnaiteras.webp" alt="Trpezarija" data-desc="Trpezarija sa ugaonom garniturom i foteljom uz elegenatni sto." loading="lazy">
+        <img src="/slike/galerija/detalji.webp" alt="Pogled trpezarije iz ugla fokusa detalja na trpezarijskom stolu" data-desc="U detaljima je suština." loading="lazy">
+        <img src="/slike/galerija/teras.webp" alt="Pogled sa terase na ono sto sadrzi i pogled iza" data-desc="Pogled sa terase koji odiše zdravljem." loading="lazy">
+        <img src="/slike/galerija/kujna.webp" alt="slika kuhinje i kuhinjskog stola" data-desc="Potpuno opremljena moderna kuhinja." loading="lazy">
+        <img src="/slike/galerija/wc.webp" alt="Toalet" data-desc="Toalet" loading="lazy">
+        <img src="/slike/galerija/sobadvakreveta.webp" alt="Spavaca soba na spratu sa dva manja kreveta" data-desc="Spavaca soba na spratu sa dva solo lezaja i ormanom" loading="lazy">
+        <img src="/slike/galerija/sobafrancuz3.webp" alt="Velika sapvaca soba sa francuskim lezajem" data-desc="Velika spavaca soba sa francuskim lezajem" loading="lazy">
         <img src="/slike/galerija/sastraneobe.webp" alt="slika obe vikendice sa strane" data-desc="Slika vikendica sa strane" loading="lazy">
         <img src="/slike/galerija/pticja.webp" alt="slika iz pticje perspektive" data-desc="Pogled na vikendice i Čajetinu iz ptičje perspektive" loading="lazy">
       </div>
@@ -118,7 +162,17 @@
     </div>
 
     <!-- fullscreen GALERIJA -->
-
+   <div class="lightbox" id="lightbox">
+  <button class="lightbox-close" aria-label="Zatvori">✕</button>
+  <button class="lightbox-arrow left" id="lightboxPrev" aria-label="Prethodna slika">❮</button>
+  <button class="lightbox-arrow right" id="lightboxNext" aria-label="Sledeća slika">❯</button>
+  
+  <img id="lightboxImg" src="" alt="">
+  
+    <div class="lightbox-caption" id="lightboxCaption">
+    <!-- Opis slike će se ovde ubaciti iz data-desc -->
+    </div>
+  </div>
 
   </div>
 </section>   
@@ -213,37 +267,11 @@
 <section class="lokacija" id="lokacija">
   <h1 class="lokacija-title">Adresa i lokacija</h1>
   
-  <div class="lokacija-flex">
-    
+  <div class="lokacija-flex"> 
       <p class="address-full">
-      Šišovići 29,
-      31310 Čajetina, 
-      Srbija
+        <a href="https://maps.app.goo.gl/rKHpR3BazRvxSner5" target="_blank">Šišovići 29, 31310 Čajetina,Srbija</a>
     </p>
-   
-    
   </div>
-  
-  <h2 class="naslov-mapa">Kako do nas?</h2>
-  <div class="map-container" title="Mapa kako do nas">
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2882.0998574278756!2d19.7269136!3d43.7500231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47582f0078cf7ac7%3A0xaa67b3d5207a4af4!2sVikendice%20Kutlesic!5e0!3m2!1ssr!2srs!4v1764530199767!5m2!1ssr!2srs"
-      width="100%" 
-      height="450" 
-      style="border:0;" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Mapa puta do nasih vikendica">
-    </iframe>
-  </div>
-  <!--
-  <div class="map-fallback">
-    <a href="https://maps.google.com/maps?q=Vaša+Adresa+Beograd" target="_blank" class="btn-map">
-      Kliknite Ovde - GUGL MAPA SE OTVARA
-    </a>
-  </div>
--->
 </section>
 
 <footer>
@@ -277,6 +305,7 @@
 </footer>
 
 <script type="module" src="../js/galerija.js" defer></script>
-<script type="module" src="../js/navigation.js" defer></script>
+  <script type="module" src="../js/navigation.js" defer></script>
+  <script type="module" src="../js/galerijaFullSc.js" defer></script>
 </body>
 </html>
