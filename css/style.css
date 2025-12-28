@@ -83,7 +83,7 @@
   height: 3px;
   background-color: #EFEBE9;
   border-radius: 2px;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease-in;
   transform-origin: center;
 }
 
@@ -96,15 +96,18 @@
 
 /* Animacija u "X" kada je menu otvoren */
 .hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(8px, 8px);
+  transform: rotate(90deg) translate(8px, 8px);
+  background-color: #4E342E;
 }
 
 .hamburger.active span:nth-child(2) {
-  opacity: 0;
+  transform: rotate(25deg) translate(9px, 4px);
+  background-color: #4E342E;
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: rotate(-45deg) translate(13px, -10px);
+  background-color: #4E342E;
 }
 /***************************************************/
   
@@ -136,9 +139,13 @@
     justify-content: center;
     align-items: center;    
   }
-  body{
-    overflow-x: hidden;
-  }
+  body.menu-open {
+  overflow: hidden;         /* Osnovno blokiranje scroll-a */
+  position: fixed;          /* Najbolje za iOS i Android – sprečava bounce */
+  width: 100%;              /* Potrebno uz position: fixed */
+  height: 100%;             /* Dodatna sigurnost */
+  top: 0;                   /* Sprečava "jump" na vrh stranice */
+}
 
   /* Stilovi za tekst i dugme */
   .hero h1 {
@@ -310,6 +317,48 @@
 
 #interior .background-image {
   background-image: url('../slike/cabin-interior.jpg'); /* Druga slika za drugi pododsek */
+}
+
+/** ABOUT SLIKA FULLSCREEN */
+  /* Fullscreen zoom - samo slika + X */
+.fs-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #000;
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  padding: 20px;
+}
+
+.fs-overlay.active {
+  display: flex;
+}
+
+.fs-image {
+  max-width: 98%;
+  max-height: 98vh;
+  object-fit: contain;
+  border-radius: 8px; /* opcionalno, za lepši izgled */
+}
+
+.fs-close {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 50px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.fs-close:hover {
+  opacity: 1;
 }
 
 /* GALERIJA */
@@ -625,7 +674,7 @@
   max-width: 100%;
   height: 100vh;
   padding: 40px 30px;
-  background-color: #A89F91;
+  background-color: #a89f90;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -893,14 +942,14 @@ footer{
     left: -100%;            /* sakriven lijevo */
     width: 100%;
     height: calc(100vh - 80px);
-    background: linear-gradient(to bottom, rgba(168, 159, 145, 0.95), rgba(168, 159, 145, 0.85));
+    background: linear-gradient(to bottom, rgba(168, 159, 145, 0.95), rgba(168, 159, 145, 1));
     backdrop-filter: blur(10px);
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     padding-top: 10px;
     gap:0;
-    transition: left 0.4s ease;
+    transition: left 0.6s ease;
     z-index: 999;
   }
 
@@ -918,15 +967,15 @@ footer{
 
   /* Hero sekcija */
   .hero h1 {
-    font-size: 32px;
-    margin-top: 60%;
-    padding: 0 20px;
+    font-size: 48px;
+    margin-top: 50%;
+    padding: 0 10px;
     text-align: center;
   }
 
   .hero p {
     font-size: 18px;
-    padding: 0 20px;
+    padding: 0 10px;
     text-align: center;
   }
 
@@ -963,6 +1012,17 @@ footer{
     font-size: 24px;
     text-align: center;
   }
+
+  
+
+/* Mobilni */
+@media (max-width: 768px) {
+  .fs-close {
+    top: 15px;
+    right: 20px;
+    font-size: 40px;
+  }
+}
 
   /* Galerija */
   .galerija h1 {
@@ -1002,8 +1062,8 @@ footer{
 
   /* Pogodnosti – kartice */
   .pricing h1 {
-    font-size: 42px;
-    padding: 0 20px;
+    font-size: 40px;
+    padding: 0px;
   }
 
   .features-cards {
@@ -1039,8 +1099,8 @@ footer{
   }
 
   #contactForm button{
-    background-color: white;
-    color: #4E342E;
+    background-color:#00664F;
+    color: white;
   }
 
   /* Lokacija */
@@ -1054,6 +1114,12 @@ footer{
 
   .address-full {
     font-size: 24px;
+  }
+
+  /* KONTAKT */
+
+  .kontakt-elementi h2{
+    font-size: 1.2rem;
   }
 
  
@@ -1101,7 +1167,7 @@ footer{
     top: 80px;
     left: 0;
     width: 100vw;
-    height: 65vh;
+    height: 100vh;
     background: linear-gradient(to bottom, rgba(168, 159, 145, 0.98), rgba(168, 159, 145, 0.95));
     backdrop-filter: blur(12px);
     display: flex;

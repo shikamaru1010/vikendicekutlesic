@@ -113,6 +113,7 @@
 
     <div class="gallery-container">
       
+      
       <!-- Strelice -->
       <button class="gallery-btn prev" aria-label="Prethodna slika">‹</button>
       <button class="gallery-btn next" aria-label="Sledeća slika">›</button>
@@ -257,7 +258,7 @@
   
   <button type="submit">Pošalji poruku</button>
   </form>
-  <div id="success" style="display:none; color:green; margin-top:10px;">
+  <div id="success" style="display:none; color:#009B77; margin-top:10px;">
   Hvala! Poruka je poslata, javiću vam se uskoro ✨
   </div>
 
@@ -279,11 +280,11 @@
   <div class="footer-sekcija">
     <div class="footer-flex">
       <img src="/slike/ikonice/phone-call.png" alt="ikonica telefona" />
-      <p>061-151-20-22</p>
+      <a href="tel:+381611512022"><p>061-152-022</p></a>
     </div>
     <div class="footer-flex">
       <img src="/slike/ikonice/phone-call.png" alt="ikonica telefona" />
-      <p>065-63-666-91</p>
+      <a href="tel:+381656366691"><p>065-636-6691</p></a>
     </div>
     <div class="footer-flex">
       <img src="/slike/ikonice/instagram.png" alt="ikonica drustvene mreze instagram"/>
@@ -304,8 +305,15 @@
     </nav>
 </footer>
 
+<!-- Minimalni Fullscreen Overlay -->
+<div class="fs-overlay" id="fsOverlay">
+  <button class="fs-close" id="fsClose" aria-label="Zatvori">✕</button>
+  <img class="fs-image" id="fsImage" src="" alt="">
+</div>
+
 <script type="module" src="../js/galerija.js" defer></script>
   <script type="module" src="../js/navigation.js" defer></script>
   <script type="module" src="../js/galerijaFullSc.js" defer></script>
+  <script type="module" src="../js/aboutFullSc.js" defer></script>
 </body>
 </html>
