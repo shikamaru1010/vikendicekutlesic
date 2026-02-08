@@ -1,13 +1,17 @@
 const form = document.getElementById('contactForm');
-const status = document.getElementById('status');
+const statusEl = document.getElementById('status');
+const submitBtn = form.querySelector('button[type="submit"]');
 
-// PROMENI OVAJ DEO SA SVOJIM LINKOM !!!');
-
-form.action = "https://formspree.io/f/xldqoozg";   // ←←← OVDE STAVI SVOJ LINK
+form.action = "https://formspree.io/f/xldqoozg";
 
 form.addEventListener('submit', function(e) {
   e.preventDefault();
-  
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Šaljem...';
+  statusEl.textContent = '';
+  statusEl.className = '';
+
   fetch(form.action, {
     method: 'POST',
     body: new FormData(form),
@@ -15,14 +19,19 @@ form.addEventListener('submit', function(e) {
   })
   .then(response => {
     if (response.ok) {
-      status.innerHTML = '<span class="success">✔ Hvala! Poruka je uspešno poslata. Javiću vam se uskoro!</span>';
+      statusEl.textContent = '\u2714 Hvala! Poruka je uspešno poslata. Javiću vam se uskoro!';
+      statusEl.className = 'status-success';
       form.reset();
-      form.style.display = 'none';
     } else {
       throw new Error();
     }
   })
   .catch(() => {
-    status.innerHTML = '<span class="error">✖ Greška prilikom slanja. Pokušajte ponovo ili pošaljite direktno na moj mail.</span>';
+    statusEl.textContent = '\u2716 Greška prilikom slanja. Pokušajte ponovo ili pošaljite direktno na moj mail.';
+    statusEl.className = 'status-error';
+  })
+  .finally(() => {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Pošalji poruku';
   });
 });

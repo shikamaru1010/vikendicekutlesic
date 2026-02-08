@@ -1,4 +1,3 @@
-
 // Fullscreen Lightbox za galeriju
 document.addEventListener('DOMContentLoaded', () => {
   const slides = document.querySelectorAll('.gallery-track img');
@@ -11,51 +10,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentIndex = 0;
 
-  // Otvori lightbox sa određenom slikom
   function openLightbox(index) {
     currentIndex = index;
     const img = slides[index];
-    lightboxImg.src = img.src;
+    lightboxImg.src = img.currentSrc || img.src;
     lightboxCaption.textContent = img.dataset.desc || img.alt;
     lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden'; // spreči scroll
+    document.body.style.overflow = 'hidden';
   }
 
-  // Zatvori lightbox
   function closeLightbox() {
     lightbox.classList.remove('active');
     document.body.style.overflow = '';
   }
 
-  // Navigacija
-  lightboxPrev.addEventListener('click', () => {
+  function showPrev() {
     currentIndex = (currentIndex - 1 + slides.length) % slides.length;
     openLightbox(currentIndex);
-  });
+  }
 
-  lightboxNext.addEventListener('click', () => {
+  function showNext() {
     currentIndex = (currentIndex + 1) % slides.length;
     openLightbox(currentIndex);
-  });
+  }
 
+  lightboxPrev.addEventListener('click', showPrev);
+  lightboxNext.addEventListener('click', showNext);
   lightboxClose.addEventListener('click', closeLightbox);
 
-  // Klik van slike zatvara
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) closeLightbox();
   });
 
-  // Tastatura (ESC, strelice)
   document.addEventListener('keydown', (e) => {
     if (!lightbox.classList.contains('active')) return;
     if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') lightboxPrev.click();
-    if (e.key === 'ArrowRight') lightboxNext.click();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'ArrowRight') showNext();
   });
 
-  // Klik na bilo koju sliku u galeriji otvara lightbox
+  // Touch/swipe support for lightbox
+  let touchStartX = 0;
+  lightbox.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  lightbox.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) showNext();
+      else showPrev();
+    }
+  });
+
   slides.forEach((img, index) => {
-    img.style.cursor = 'pointer';
     img.addEventListener('click', () => openLightbox(index));
   });
 });
