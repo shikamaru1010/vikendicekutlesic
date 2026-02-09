@@ -27,6 +27,30 @@
 <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
 <link rel="manifest" href="favicon/site.webmanifest" />
 
+  <!-- Inline critical above-the-fold CSS to prevent FOUC while keeping stylesheet non-blocking -->
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    .header{background:linear-gradient(to bottom,rgba(168,159,145,.8),rgba(255,255,255,.5));background-color:#A89F91;backdrop-filter:blur(5px);height:80px;padding:0 32px;display:flex;justify-content:space-between;align-items:center;position:fixed;top:0;left:0;width:100%;z-index:1000}
+    .logo img{width:64px;height:auto}
+    .nav-links{list-style:none;display:flex;gap:24px}
+    .nav-links li a{font-family:'Amatic SC',serif;font-size:18px;color:#4E342E;text-decoration:none}
+    .hamburger{display:none;flex-direction:column;gap:6px;background:none;border:none;padding:10px;cursor:pointer}
+    .hamburger span{display:block;width:30px;height:3px;background-color:#EFEBE9;border-radius:2px}
+    .hero{background-image:url('slike/galerija/odozdo.webp');background-size:cover;background-position:center;max-width:100%;height:100vh}
+    .hero::before{content:'';position:absolute;left:0;width:100%;height:100vh;background:rgba(0,0,0,.6)}
+    .hero-kontejner{position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center}
+    .hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.5rem,5vw,4rem);margin-top:20%;position:relative;top:50%;transform:translateY(-50%);color:#fff}
+    .hero p{font-family:'Roboto',sans-serif;font-size:24px;color:#EFEBE9;margin:16px 0;position:relative}
+    .btn{padding:14px 24px;border-radius:50px;text-decoration:none;font-weight:bold;display:inline-flex;align-items:center;gap:8px}
+    .btn-poziv{background:#4E342E;color:#fff}
+    .btn-whatsapp{background:#25D366;color:#fff}
+    .rezervacija-dugmad{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;margin:20px 0;z-index:2}
+    .skip-link{position:absolute;top:-100%;left:16px;z-index:10000}
+    .about{padding:120px 64px;background:linear-gradient(135deg,#f5f5f5 80%,#e9e4df 100%);position:relative;display:flex;align-items:center;justify-content:center;gap:24px}
+    .about>div{flex:1 1 0;display:flex;flex-direction:column;justify-content:center;height:540px}
+    .smestaj-slika{width:100%;height:100%;object-fit:cover;object-position:bottom;border-radius:12px;display:block}
+    @media(max-width:767px){.hamburger{display:flex}.nav-links{position:fixed;top:80px;left:-100%;width:100%;height:calc(100vh - 80px)}.hero h1{font-size:48px;margin-top:50%;text-align:center}.about{flex-direction:column;padding:80px 20px}.about>div{height:auto}}
+  </style>
   <link rel="stylesheet" href="css/style.css">
 
   <link rel="preload" as="image" href="/slike/galerija/odozdo.webp">
@@ -64,7 +88,7 @@
   <a class="skip-link" href="#about">Preskoči na sadržaj</a>
   <header class="header">
     <div class="logo">
-      <img src="slike/ikonice/logo.webp" alt="Vikendice Kutlešić logo"/>
+      <img src="slike/ikonice/logo.webp" alt="Vikendice Kutlešić logo" width="62" height="62"/>
     </div>
     <nav class="nav">
       <ul class="nav-links">
@@ -138,12 +162,12 @@
     media="(min-width: 769px)"
     srcset="slike/galerija/about.webp"
     type="image/webp">
-  <img 
+  <img
     class="smestaj-slika"
     src="slike/galerija/about.webp"
     alt="slika obe vikendice uz prirodne cari"
-   
-    loading="lazy">             
+    width="900" height="675"
+    loading="lazy">
 </picture>  </div>
   </section>
     <!-- Sekcija Galerija" -->
@@ -169,10 +193,10 @@
               media="(min-width: 769px)" 
               srcset="/slike/galerija/priroda.webp" 
               type="image/webp">
-            <img 
-              src="/slike/galerija/priroda.webp" 
-              alt="Pogled sa ulaza na brdovit predeo" 
-              data-desc="Priroda i društvo." 
+            <img
+              src="/slike/galerija/priroda.webp"
+              alt="Pogled sa ulaza na brdovit predeo"
+              data-desc="Priroda i društvo."
               loading="eager">
         </picture>
         <picture>
@@ -180,7 +204,7 @@
             <source media="(min-width: 769px)" srcset="/slike/galerija/2saparkingom.webp">
             <img src="/slike/galerija/2saparkingom.webp"
                 alt="2 vikendice sa parkingom"
-                data-desc="Parking se nalazi odmah do vikendica." 
+                data-desc="Parking se nalazi odmah do vikendica."
                 loading="lazy">
         </picture>
         <img src="/slike/galerija/ulaz.webp" alt="Ulaz ugao na trpezariju" data-desc="Zavirite u vaš novi omiljeni dom. " loading="lazy">
@@ -221,22 +245,22 @@
   <h2>Pogodnosti</h2>
   <div class="features-cards">
     <div class="card">
-      <img src="slike/ikonice/mountain.png" alt="Lokacija ikona">
+      <img src="slike/ikonice/mountain.png" alt="Lokacija ikona" width="60" height="60">
       <h3>Lokacija</h3>
       <p>Smešteni na obroncima planine, okruženi prirodom i tišinom.</p>
     </div>
     <div class="card">
-      <img src="slike/ikonice/parking.png" alt="Parking ikona">
+      <img src="slike/ikonice/parking.png" alt="Parking ikona" width="60" height="60">
       <h3>Parking mesto</h3>
       <p>Privatni parking u sklopu vikendice za vaš automobil.</p>
     </div>
     <div class="card">
-      <img src="slike/ikonice/field.webp" alt="Letnjikovac ikona">
+      <img src="slike/ikonice/field.webp" alt="Letnjikovac ikona" width="60" height="60">
       <h3>Letnjikovac</h3>
       <p>Uživajte u prostranom letnjikovcu okruženom zelenilom.</p>
     </div>
     <div class="card">
-      <img src="slike/ikonice/wifi.png" alt="Wi-Fi ikona">
+      <img src="slike/ikonice/wifi.png" alt="Wi-Fi ikona" width="60" height="60">
       <h3>Besplatan Wi-Fi</h3>
       <p>Povežite se sa svetom uz besplatan Wi-Fi tokom boravka.</p>
     </div>
@@ -247,11 +271,11 @@
   <h2>Kontakt</h2>
   <div class="kontakt-elementi">
     <div class="kontakt-items">
-      <img src="slike/ikonice/phone-call.png" alt="Telefon ikonica">
+      <img src="slike/ikonice/phone-call.png" alt="Telefon ikonica" width="36" height="36">
       <a href="tel:+381611512022" aria-label="Pozovite nas na 061-151-20-22"><span>061-151-20-22</span></a>
     </div>
     <div class="kontakt-items">
-      <img src="slike/ikonice/phone-call.png" alt="Telefon">
+      <img src="slike/ikonice/phone-call.png" alt="Telefon" width="36" height="36">
       <a href="tel:+381656366691" aria-label="Pozovite nas na 065-63-666-91"><span>065-63-666-91</span></a>
     </div>
 

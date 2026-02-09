@@ -924,6 +924,10 @@ footer {
   }
 
   /* Hero */
+
+  .hero{
+    background-image: url('../slike/galerija/odozdo-small.webp');
+  }
   .hero h1 {
     font-size: 48px;
     margin-top: 50%;
