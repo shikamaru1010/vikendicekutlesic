@@ -896,16 +896,6 @@ footer {
   color: var(--color-brown-darker);
 }
 
-/* Email u footeru */
-.footer-email svg {
-  flex-shrink: 0;
-}
-
-.footer-email a {
-  font-size: 18px;
-  overflow-wrap: anywhere;
-}
-
 .nav-footer {
   margin: auto 0;
 }
@@ -1279,10 +1269,6 @@ footer {
     padding: 40px 20px;
     text-align: center;
     align-items: center;
-  }
-
-  .footer-email a {
-    font-size: 15px;
   }
 
   .nav-footer ul {
