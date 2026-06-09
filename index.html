@@ -68,6 +68,7 @@
     "description": "Luksuzne drvene vikendice za 6 osoba u Čajetini, u blizini Zlatibora. WiFi, parking, roštilj i terasa.",
     "url": "https://vikendicekutlesic.rs/",
     "telephone": ["+381611512022", "+381656366691"],
+    "email": "vikendicekutlesic@gmail.com",
     "checkinTime": "12:00",
     "checkoutTime": "10:00",
     "address": {
@@ -366,26 +367,30 @@
 <section class="sekcija-kontakt" id="contact">
   <h2>Kontakt</h2>
   <div class="kontakt-elementi">
-    <div class="kontakt-items">
-      <img src="slike/ikonice/phone-call.png" alt="Telefon ikonica" width="36" height="36">
-      <a href="tel:+381611512022" aria-label="Pozovite nas na 061-151-20-22"><span>061-151-20-22</span></a>
-    </div>
-    <div class="kontakt-items">
-      <img src="slike/ikonice/phone-call.png" alt="Telefon" width="36" height="36">
-      <a href="tel:+381656366691" aria-label="Pozovite nas na 065-63-666-91"><span>065-63-666-91</span></a>
-    </div>
-
-    <h3>Unesite za više informacija</h3>
-    <form action="https://formspree.io/f/xldqoozg" method="POST" id="contactForm">
-  <input type="text" name="ime" placeholder="Ime i prezime" required>
-  <input type="email" name="email" placeholder="vas@gmail.com" required>
-  <input type="text" name="_gotcha" style="display:none" />
-  <textarea name="poruka" rows="5" placeholder="Vaša poruka..." required></textarea>
-
-  <button type="submit">Pošalji poruku</button>
-  </form>
-  <div id="status" aria-live="polite" role="status"></div>
-
+    <a href="tel:+381611512022" class="kontakt-card" aria-label="Pozovite nas na 061-151-20-22">
+      <span class="kontakt-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.72 11.72 0 003.66.59 1 1 0 011 1V21a1 1 0 01-1 1A17 17 0 013 4.08a1 1 0 011-1h3.59a1 1 0 011 1 11.72 11.72 0 00.59 3.66 1 1 0 01-.24 1.01l-2.32 2.04z"/>
+        </svg>
+      </span>
+      <span class="kontakt-label">061-151-20-22</span>
+    </a>
+    <a href="tel:+381656366691" class="kontakt-card" aria-label="Pozovite nas na 065-63-666-91">
+      <span class="kontakt-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.72 11.72 0 003.66.59 1 1 0 011 1V21a1 1 0 01-1 1A17 17 0 013 4.08a1 1 0 011-1h3.59a1 1 0 011 1 11.72 11.72 0 00.59 3.66 1 1 0 01-.24 1.01l-2.32 2.04z"/>
+        </svg>
+      </span>
+      <span class="kontakt-label">065-63-666-91</span>
+    </a>
+    <a href="mailto:vikendicekutlesic@gmail.com" class="kontakt-card" aria-label="Pošaljite nam email na vikendicekutlesic@gmail.com">
+      <span class="kontakt-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+      </span>
+      <span class="kontakt-label">vikendicekutlesic@gmail.com</span>
+    </a>
   </div>
 </section>
 <!-- Sekcija lokacija-->
@@ -409,6 +414,12 @@
     <div class="footer-flex">
       <img src="slike/ikonice/phone-call.png" alt="ikonica telefona" />
       <a href="tel:+381656366691" aria-label="Pozovite nas na 065-63-666-91"><span>065-636-6691</span></a>
+    </div>
+    <div class="footer-flex footer-email">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="#2f1f1c" aria-hidden="true">
+        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+      </svg>
+      <a href="mailto:vikendicekutlesic@gmail.com" aria-label="Pošaljite nam email na vikendicekutlesic@gmail.com">vikendicekutlesic@gmail.com</a>
     </div>
     <div class="footer-flex">
       <img src="slike/ikonice/instagram.png" alt="ikonica drustvene mreze instagram"/>
@@ -451,6 +462,5 @@
   <script type="module" src="js/aboutFullSc.js" defer></script>
   <script type="module" src="js/kvadoviLightbox.js" defer></script>
   <script type="module" src="js/kvadoviVideo.js" defer></script>
-  <script src="js/forma.js" defer></script>
 </body>
 </html>
