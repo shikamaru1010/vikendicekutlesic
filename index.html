@@ -28,21 +28,27 @@
 <link rel="shortcut icon" href="favicon/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
 <link rel="manifest" href="favicon/site.webmanifest" />
+  <meta name="theme-color" content="#4E342E">
+  <meta property="og:image:alt" content="Vikendice Kutlešić sa parkingom u Čajetini">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Playfair+Display:wght@600;700&family=Roboto:wght@400;700&display=swap">
 
   <!-- Inline critical above-the-fold CSS to prevent FOUC while keeping stylesheet non-blocking -->
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     .header{background:linear-gradient(to bottom,rgba(168,159,145,.8),rgba(255,255,255,.5));background-color:#A89F91;backdrop-filter:blur(5px);height:80px;padding:0 32px;display:flex;justify-content:space-between;align-items:center;position:fixed;top:0;left:0;width:100%;z-index:1000}
     .logo img{width:64px;height:auto}
-    .nav-links{list-style:none;display:flex;gap:24px}
-    .nav-links li a{font-family:'Amatic SC',serif;font-size:18px;color:#4E342E;text-decoration:none}
+    .nav-links{list-style:none;display:flex;gap:20px;align-items:center}
+    .nav-links li a{font-family:'Amatic SC',cursive,serif;font-size:26px;font-weight:700;color:#3E2A25;text-decoration:none}
     .hamburger{display:none;flex-direction:column;gap:6px;background:none;border:none;padding:10px;cursor:pointer}
     .hamburger span{display:block;width:30px;height:3px;background-color:#EFEBE9;border-radius:2px}
-    .hero{background-image:url('slike/galerija/odozdo.webp');background-size:cover;background-position:center;max-width:100%;height:100vh}
-    .hero::before{content:'';position:absolute;left:0;width:100%;height:100vh;background:rgba(0,0,0,.6)}
-    .hero-kontejner{position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center}
-    .hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.5rem,5vw,4rem);margin-top:20%;position:relative;top:50%;transform:translateY(-50%);color:#fff}
-    .hero p{font-family:'Roboto',sans-serif;font-size:24px;color:#EFEBE9;margin:16px 0;position:relative}
+    .hero{background-image:url('slike/galerija/odozdo.webp');background-size:cover;background-position:center;max-width:100%;height:100dvh;position:relative;z-index:0;overflow:hidden;isolation:isolate;contain:paint;clip-path:inset(0)}
+    .hero::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 50% 42%,rgba(0,0,0,.22) 0%,rgba(0,0,0,.48) 78%),rgba(0,0,0,.28)}
+    .hero-kontejner{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;min-height:100dvh;padding:100px 16px 40px;text-align:center}
+    .hero h1,.hero-naslov{font-family:'Playfair Display',Georgia,serif;font-size:clamp(3.75rem,13.2vw,8.35rem);color:#fff;text-shadow:0 10px 44px rgba(0,0,0,.92),0 1px 4px #000}
+    .hero p{font-family:'Roboto',sans-serif;font-size:24px;color:#EFEBE9;margin:16px 0}
     .btn{padding:14px 24px;border-radius:50px;text-decoration:none;font-weight:bold;display:inline-flex;align-items:center;gap:8px}
     .btn-poziv{background:#4E342E;color:#fff}
     .btn-whatsapp{background:#25D366;color:#fff}
@@ -51,13 +57,11 @@
     .about{padding:120px 64px;background:linear-gradient(135deg,#f5f5f5 80%,#e9e4df 100%);position:relative;display:flex;align-items:center;justify-content:center;gap:24px}
     .about>div{flex:1 1 0;display:flex;flex-direction:column;justify-content:center;height:540px}
     .smestaj-slika{width:100%;height:100%;object-fit:cover;object-position:bottom;border-radius:12px;display:block}
-    @media(max-width:767px){.hamburger{display:flex}.nav-links{position:fixed;top:80px;left:-100%;width:100%;height:calc(100vh - 80px)}.hero h1{font-size:48px;margin-top:50%;text-align:center}.about{flex-direction:column;padding:80px 20px}.about>div{height:auto}}
+    @media(max-width:767px){.hamburger{display:flex}.nav-links{position:fixed;top:80px;left:-100%;width:100%;height:calc(100dvh - 80px);flex-direction:column;justify-content:center;align-items:stretch;gap:0;padding:20px 28px;background:#EFEBE9}.nav-links li a{font-size:36px;color:#3E2A25}.about{flex-direction:column;padding:80px 20px}.about>div{height:auto}}
   </style>
   <link rel="stylesheet" href="css/style.css">
 
   <link rel="preload" as="image" href="/slike/galerija/odozdo.webp">
-  <link rel="preload" as="image" href="/slike/galerija/priroda.webp" media="(min-width: 769px)">
-  <link rel="preload" as="image" href="/slike/galerija/priroda-small.webp" media="(max-width: 768px)">
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -69,8 +73,9 @@
     "url": "https://vikendicekutlesic.rs/",
     "telephone": ["+381611512022", "+381656366691"],
     "email": "vikendicekutlesic@gmail.com",
-    "checkinTime": "12:00",
+    "checkinTime": "14:00",
     "checkoutTime": "10:00",
+    "petsAllowed": true,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Šišovići 29",
@@ -95,6 +100,7 @@
       {"@type": "LocationFeatureSpecification", "name": "Parking", "value": true},
       {"@type": "LocationFeatureSpecification", "name": "Terasa", "value": true},
       {"@type": "LocationFeatureSpecification", "name": "Roštilj", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Kapacitet do 6 osoba", "value": true},
       {"@type": "LocationFeatureSpecification", "name": "Vožnja kvadovima", "value": true}
     ],
     "sameAs": ["https://www.instagram.com/vikendicekutlesic/"]
@@ -104,12 +110,12 @@
 <body>
   <a class="skip-link" href="#about">Preskoči na sadržaj</a>
   <header class="header">
-    <div class="logo">
-      <img src="slike/ikonice/logo.webp" alt="Vikendice Kutlešić logo" width="62" height="62"/>
-    </div>
+    <a href="#" class="logo" aria-label="Početna">
+      <img src="slike/ikonice/logo.webp" alt="" width="62" height="62"/>
+    </a>
     <nav class="nav">
-      <ul class="nav-links">
-        <li><a href="#">Početna</a></li>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#pocetna">Početna</a></li>
         <li><a href="#about">O smeštaju</a></li>
         <li><a href="#gallery">Galerija</a></li>
         <li><a href="#pogodnosti">Pogodnosti</a></li>
@@ -132,10 +138,10 @@
 
 
     <!-- Hero Sekcija -->
-  <section class="hero">
+  <section class="hero" id="pocetna">
     <div class="hero-kontejner">
-      <h1>Vikendice Kutlešić</h1>
-      <p>Planinska čarolija na dohvat ruke.</p>
+      <h1 class="hero-naslov">Vikendice Kutlešić</h1>
+      <p class="hero-podnaslov">Planinska čarolija na dohvat ruke.</p>
       <div class="rezervacija-dugmad">
         <div>
           <a href="tel:+381611512022" class="btn btn-poziv" aria-label="Pozovite nas na 061-151-20-22">
@@ -154,23 +160,24 @@
   </section>
     <!-- O NAMA Sekcija-->
   <section class="about" id="about">
-  <div>
-    <h2>O smeštaju</h2>
-    <p>Vikendice Kutlešić se nalaze u mestu <a href="https://www.cajetina.org.rs/sr/node/915"
+  <div class="about-tekst">
+    <h2 class="about-naslov">O smeštaju</h2>
+    <p class="about-uvod">Vikendice Kutlešić se nalaze u mestu <a href="https://www.cajetina.org.rs/sr/node/915"
                                        target="_blank"
                                        rel="noopener noreferrer"
                                        class="about-vazanTekst"
-                                       title="Saznaj više o opštini Čajetina">
-        Čajetina
-    </a>koje odiše prirodom i dokaz je kako u trenutno vrlo urbanom vremenu i dalje ima mesta na kojima čovek može da odmori glavu, okružen šumom i prirodom.</p>
-    <h2>Udobnost vikendice za savršen odmor</h2>
+                                       title="Saznaj više o opštini Čajetina">Čajetina</a> koje odiše prirodom i dokaz je kako u trenutno vrlo urbanom vremenu i dalje ima mesta na kojima čovek može da odmori glavu, okružen šumom i prirodom.</p>
+    <div class="about-udobnost">
+    <h3>Udobnost vikendice za savršen odmor</h3>
     <p>Vikendica odiše toplinom modernog planinskog stila – svetlo drvo na zidovima i plafonima, veliki prozori sa pogledom na prirodu i puno prirodnog svetla.
-    U prizemlju vas dočekuje prostrani dnevni boravak sa potpuno opremljenom kuhinjom , natkrivena terasa koja se nastavlja direktno iz dnevnog boravka. Na spratu su dve spavaće sobe sa panoramskim pogledom.</p>
-    <h2>Prostorni raspored i kapacitet</h2>
-    
-    <p>Kompletno opremljene vikendice se sastoje od dva nivoa.U prizemlju imamo dnevni boravak, kuhinju, kupatilo i terasu.Na spratu su dve spavaće sobe, jedna soba ima dva solo ležaja.Mogu da prime i do <span class="about-vazanTekst" title="Maksimalan broj osoba po jednoj vikendici">6 osoba</span> po vikendici. </p>
+    U prizemlju vas dočekuje prostrani dnevni boravak sa potpuno opremljenom kuhinjom, natkrivena terasa koja se nastavlja direktno iz dnevnog boravka. Na spratu su dve spavaće sobe sa panoramskim pogledom.</p>
+    </div>
+    <div class="about-raspored">
+    <h3>Prostorni raspored i kapacitet</h3>
+    <p>Kompletno opremljene vikendice se sastoje od dva nivoa. U prizemlju imamo dnevni boravak, kuhinju, kupatilo i terasu. Na spratu su dve spavaće sobe — jedna sa francuskim ležajem, druga sa dva solo ležaja. Obe vikendice su isto opremljene i mogu da prime i do <span class="about-vazanTekst" title="Maksimalan broj osoba po jednoj vikendici">6 osoba</span> po vikendici.</p>
+    </div>
   </div>
-  <div>
+  <div class="about-slika">
 <picture>
   <source 
     media="(max-width: 768px)"
@@ -183,10 +190,14 @@
   <img
     class="smestaj-slika"
     src="slike/galerija/about.webp"
-    alt="slika obe vikendice uz prirodne cari"
+    alt="Obe vikendice Kutlešić uz prirodne čari Čajetine"
     width="900" height="675"
-    loading="lazy">
-</picture>  </div>
+    loading="lazy"
+    tabindex="0"
+    role="button"
+    aria-label="Uvećaj sliku smeštaja">
+</picture>
+  </div>
   </section>
     <!-- Sekcija Galerija" -->
   <section class="galerija" id="gallery">
@@ -201,7 +212,7 @@
   
       <!-- Slides -->
      <div class="gallery-track">
-
+        <div class="gallery-slide">
         <picture>
             <source 
               media="(max-width: 768px)" 
@@ -215,26 +226,55 @@
               src="/slike/galerija/priroda.webp"
               alt="Pogled sa ulaza na brdovit predeo"
               data-desc="Priroda i društvo."
-              loading="eager">
+              width="1100" height="500"
+              loading="eager"
+              tabindex="0"
+              role="button">
         </picture>
+        </div>
+        <div class="gallery-slide">
         <picture>
             <source media="(max-width: 768px)" srcset="/slike/galerija/2saparkingom-small.webp">
             <source media="(min-width: 769px)" srcset="/slike/galerija/2saparkingom.webp">
             <img src="/slike/galerija/2saparkingom.webp"
-                alt="2 vikendice sa parkingom"
+                alt="Dve vikendice sa parkingom"
                 data-desc="Parking se nalazi odmah do vikendica."
-                loading="lazy">
+                width="1100" height="500"
+                loading="lazy"
+                tabindex="0"
+                role="button">
         </picture>
-        <img src="/slike/galerija/ulaz.webp" alt="Ulaz ugao na trpezariju" data-desc="Zavirite u vaš novi omiljeni dom. " loading="lazy">
-        <img src="/slike/galerija/dnevnaiteras.webp" alt="Trpezarija" data-desc="Trpezarija sa ugaonom garniturom i foteljom uz elegenatni sto." loading="lazy">
-        <img src="/slike/galerija/detalji.webp" alt="Pogled trpezarije iz ugla fokusa detalja na trpezarijskom stolu" data-desc="U detaljima je suština." loading="lazy">
-        <img src="/slike/galerija/teras.webp" alt="Pogled sa terase na ono sto sadrzi i pogled iza" data-desc="Pogled sa terase koji odiše zdravljem." loading="lazy">
-        <img src="/slike/galerija/kujna.webp" alt="slika kuhinje i kuhinjskog stola" data-desc="Potpuno opremljena moderna kuhinja." loading="lazy">
-        <img src="/slike/galerija/wc.webp" alt="Toalet." data-desc="Toalet" loading="lazy">
-        <img src="/slike/galerija/sobadvakreveta.webp" alt="Spavaća soba na spratu sa dva manja kreveta" data-desc="Spavaća soba na spratu sa dva solo lezaja i ormanom." loading="lazy">
-        <img src="/slike/galerija/sobafrancuz3.webp" alt="Velika sapvaca soba sa francuskim lezajem" data-desc="Velika spavaća soba sa francuskim ležajem." loading="lazy">
-        <img src="/slike/galerija/sastraneobe.webp" alt="slika obe vikendice sa strane" data-desc="Slika vikendica sa strane." loading="lazy">
-        <img src="/slike/galerija/pticja.webp" alt="slika iz ptičje perspektive" data-desc="Pogled na vikendice i Čajetinu iz ptičje perspektive." loading="lazy">
+        </div>
+        <div class="gallery-slide">
+        <img src="/slike/galerija/ulaz.webp" alt="Ulazni ugao na trpezariju" data-desc="Zavirite u vaš novi omiljeni dom." width="1100" height="500" loading="lazy" tabindex="0" role="button">
+        </div>
+        <div class="gallery-slide">
+        <img src="/slike/galerija/dnevnaiteras.webp" alt="Trpezarija sa ugaonom garniturom" data-desc="Trpezarija sa ugaonom garniturom i foteljom uz elegantni sto." width="1100" height="500" loading="lazy" tabindex="0" role="button">
+        </div>
+        <div class="gallery-slide">
+        <img src="/slike/galerija/detalji.webp" alt="Detalj na trpezarijskom stolu" data-desc="U detaljima je suština." width="1100" height="500" loading="lazy" tabindex="0" role="button">
+        </div>
+        <div class="gallery-slide">
+        <img src="/slike/galerija/teras.webp" alt="Pogled sa terase na okolinu" data-desc="Pogled sa terase koji odiše zdravljem." width="1100" height="500" loading="lazy" tabindex="0" role="button">
+        </div>
+        <div class="gallery-slide">
+        <img src="/slike/galerija/kujna.webp" alt="Kuhinja i kuhinjski sto" data-desc="Potpuno opremljena moderna kuhinja." width="1100" height="500" loading="lazy" tabindex="0" role="button">
+        </div>
+        <div class="gallery-slide">
+        <img src="/slike/galerija/wc.webp" alt="Kupatilo" data-desc="Toalet" width="1100" height="500" loading="lazy" tabindex="0" role="button">
+        </div>
+        <div class="gallery-slide">
+        <img src="/slike/galerija/sobadvakreveta.webp" alt="Spavaća soba na spratu sa dva manja kreveta" data-desc="Spavaća soba na spratu sa dva solo ležaja i ormanom." width="1100" height="500" loading="lazy" tabindex="0" role="button">
+        </div>
+        <div class="gallery-slide">
+        <img src="/slike/galerija/sobafrancuz3.webp" alt="Velika spavaća soba sa francuskim ležajem" data-desc="Velika spavaća soba sa francuskim ležajem." width="1100" height="500" loading="lazy" tabindex="0" role="button">
+        </div>
+        <div class="gallery-slide">
+        <img src="/slike/galerija/sastraneobe.webp" alt="Obe vikendice sa strane" data-desc="Slika vikendica sa strane." width="1100" height="500" loading="lazy" tabindex="0" role="button">
+        </div>
+        <div class="gallery-slide">
+        <img src="/slike/galerija/pticja.webp" alt="Vikendice iz ptičje perspektive" data-desc="Pogled na vikendice i Čajetinu iz ptičje perspektive." width="1100" height="500" loading="lazy" tabindex="0" role="button">
+        </div>
       </div>
   
       <!-- Caption traka na dnu -->
@@ -242,7 +282,7 @@
     </div>
 
     <!-- fullscreen GALERIJA -->
-   <div class="lightbox" id="lightbox">
+   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galerija u punom ekranu" hidden>
   <button class="lightbox-close" aria-label="Zatvori">✕</button>
   <button class="lightbox-arrow left" id="lightboxPrev" aria-label="Prethodna slika">❮</button>
   <button class="lightbox-arrow right" id="lightboxNext" aria-label="Sledeća slika">❯</button>
@@ -258,29 +298,75 @@
 </section>   
 
 
-<!-- Sekcija Cene i prednost" -->
-<section class="pricing" id="pogodnosti">
-  <h2>Pogodnosti</h2>
-  <div class="features-cards">
-    <div class="card">
-      <img src="slike/ikonice/mountain.png" alt="Lokacija ikona" width="60" height="60">
-      <h3>Lokacija</h3>
-      <p>Smešteni na obroncima planine, okruženi prirodom i tišinom.</p>
+<!-- Sekcija Pogodnosti -->
+<section class="pogodnosti" id="pogodnosti" aria-labelledby="pogodnosti-naslov">
+  <h2 id="pogodnosti-naslov">Pogodnosti</h2>
+  <p class="pogodnosti-uvod">Šta vas čeka na imanju i u vikendici.</p>
+  <div class="pogodnosti-tabla">
+    <div class="pogodnosti-grupa">
+      <h3>Na imanju</h3>
+      <ul class="pogodnosti-lista">
+        <li class="pogodnosti-stavka">
+          <img src="slike/ikonice/parking.png" alt="" width="60" height="60">
+          <div>
+            <h4>Parking mesto</h4>
+            <p>Privatni parking u sklopu vikendice za vaš automobil.</p>
+          </div>
+        </li>
+        <li class="pogodnosti-stavka">
+          <img src="slike/ikonice/field.webp" alt="" width="60" height="60">
+          <div>
+            <h4>Letnjikovac</h4>
+            <p>Uživajte u prostranom letnjikovcu okruženom zelenilom.</p>
+          </div>
+        </li>
+        <li class="pogodnosti-stavka">
+          <svg class="pogodnosti-ikona" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.62" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 4.55v1.15"/>
+            <path d="M5.3 8.75c0-1.55 3-2.85 6.7-2.85s6.7 1.3 6.7 2.85"/>
+            <path d="M7.6 7.55v2.3M12 6.95v3.15M16.4 7.55v2.3"/>
+            <path d="M5.3 8.75c.5 3.85 3.2 6.1 6.7 6.1s6.2-2.25 6.7-6.1"/>
+            <path d="M8.6 15.5 7.3 20.4M15.4 15.5l1.3 4.9M12 15.6v4.9"/>
+            <path d="M7.3 18.95h9.4"/>
+          </svg>
+          <div>
+            <h4>Roštilj</h4>
+            <p>Večera pod otvorenim nebom — roštilj spreman za druženje posle šetnje.</p>
+          </div>
+        </li>
+      </ul>
     </div>
-    <div class="card">
-      <img src="slike/ikonice/parking.png" alt="Parking ikona" width="60" height="60">
-      <h3>Parking mesto</h3>
-      <p>Privatni parking u sklopu vikendice za vaš automobil.</p>
-    </div>
-    <div class="card">
-      <img src="slike/ikonice/field.webp" alt="Letnjikovac ikona" width="60" height="60">
-      <h3>Letnjikovac</h3>
-      <p>Uživajte u prostranom letnjikovcu okruženom zelenilom.</p>
-    </div>
-    <div class="card">
-      <img src="slike/ikonice/wifi.png" alt="Wi-Fi ikona" width="60" height="60">
-      <h3>Besplatan Wi-Fi</h3>
-      <p>Povežite se sa svetom uz besplatan Wi-Fi tokom boravka.</p>
+    <div class="pogodnosti-grupa">
+      <h3>U vikendici</h3>
+      <ul class="pogodnosti-lista">
+        <li class="pogodnosti-stavka">
+          <img src="slike/ikonice/wifi.png" alt="" width="60" height="60">
+          <div>
+            <h4>Besplatan Wi-Fi</h4>
+            <p>Povežite se sa svetom uz besplatan Wi-Fi tokom boravka.</p>
+          </div>
+        </li>
+        <li class="pogodnosti-stavka">
+          <img src="slike/ikonice/landscape.png" alt="" width="60" height="60">
+          <div>
+            <h4>Terasa</h4>
+            <p>Natkrivena terasa iz dnevnog boravka, sa pogledom na prirodu.</p>
+          </div>
+        </li>
+        <li class="pogodnosti-stavka">
+          <svg class="pogodnosti-ikona" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.62" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4.6 17.35V12.45c0-.7.55-1.25 1.25-1.25h12.3c.7 0 1.25.55 1.25 1.25v4.9"/>
+            <path d="M4.6 14.55h14.8"/>
+            <path d="M5.55 11.2V8.45c0-.5.4-.9.9-.9h5.1c.5 0 .9.4.9.9v2.75"/>
+            <path d="M4.15 17.35h15.7"/>
+            <path d="M6.55 17.35v1.25M17.45 17.35v1.25"/>
+          </svg>
+          <div>
+            <h4>Do 6 gostiju</h4>
+            <p>Francuski ležaj, dve solo sobe i dnevni boravak — komplet za porodicu ili druženje.</p>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
@@ -294,48 +380,59 @@
     Cena vožnje se utvrđuje po dogovoru.
   </p>
 
+  <div class="kvadovi-galerija">
   <div class="kvadovi-grid">
-    <div class="kvadovi-item">
+    <div class="kvadovi-item kvadovi-aktivan">
       <picture>
         <source media="(max-width: 768px)" srcset="slike/kvadovi/3kvadaDanV2-small.webp" type="image/webp">
+        <source media="(min-width: 769px)" srcset="slike/kvadovi/3kvadaDanV2.webp" type="image/webp">
         <img src="slike/kvadovi/3kvadaDanV2.jpg"
              alt="Tri kvada ispred obe vikendice sa pogledom na planine"
-             loading="lazy" width="800" height="1067">
+             loading="lazy" width="800" height="1067"
+             tabindex="0" role="button">
       </picture>
     </div>
     <div class="kvadovi-item">
       <picture>
         <source media="(max-width: 768px)" srcset="slike/kvadovi/kvadGlavica-small.webp" type="image/webp">
+        <source media="(min-width: 769px)" srcset="slike/kvadovi/kvadGlavica.webp" type="image/webp">
         <img src="slike/kvadovi/kvadGlavica.jpg"
              alt="Kvad na šumskoj stazi okružen borovima"
-             loading="lazy" width="800" height="1067">
+             loading="lazy" width="800" height="1067"
+             tabindex="0" role="button">
       </picture>
     </div>
     <div class="kvadovi-item">
       <picture>
         <source media="(max-width: 768px)" srcset="slike/kvadovi/3kvadaNocV3-small.webp" type="image/webp">
+        <source media="(min-width: 769px)" srcset="slike/kvadovi/3kvadaNocV3.webp" type="image/webp">
         <img src="slike/kvadovi/3kvadaNocV3.jpg"
              alt="Kvad noću sa toplim svetlom vikendice u pozadini"
-             loading="lazy" width="800" height="1067">
+             loading="lazy" width="800" height="1067"
+             tabindex="0" role="button">
       </picture>
     </div>
     <div class="kvadovi-item">
       <picture>
         <source media="(max-width: 768px)" srcset="slike/kvadovi/3kvadaNoc-small.webp" type="image/webp">
+        <source media="(min-width: 769px)" srcset="slike/kvadovi/3kvadaNoc.webp" type="image/webp">
         <img src="slike/kvadovi/3kvadaNoc.jpg"
              alt="Tri kvada noću sa upaljenim farovima"
-             loading="lazy" width="800" height="1067">
+             loading="lazy" width="800" height="1067"
+             tabindex="0" role="button">
       </picture>
     </div>
     <div class="kvadovi-item">
       <picture>
         <source media="(max-width: 768px)" srcset="slike/kvadovi/kvadGlavicaV2-small.webp" type="image/webp">
+        <source media="(min-width: 769px)" srcset="slike/kvadovi/kvadGlavicaV2.webp" type="image/webp">
         <img src="slike/kvadovi/kvadGlavicaV2.jpg"
              alt="Kvad na šumskom putu — pogled sa zadnje strane"
-             loading="lazy" width="800" height="1067">
+             loading="lazy" width="800" height="1067"
+             tabindex="0" role="button">
       </picture>
     </div>
-    <div class="kvadovi-item kvadovi-video-item">
+    <div class="kvadovi-item kvadovi-video-item" tabindex="0" role="button" aria-label="Otvori video vožnje kvadom u punom ekranu">
       <video
         src="slike/kvadovi/snimak.mp4"
         poster="slike/kvadovi/3kvadaDanV2.jpg"
@@ -343,14 +440,15 @@
         loop
         playsinline
         preload="none"
-        aria-label="Video snimak vožnje kvadom">
+        aria-hidden="true">
       </video>
-      <button class="kvadovi-play" aria-label="Pusti video">
+      <button class="kvadovi-play" type="button" aria-label="Otvori video u punom ekranu">
         <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M8 5v14l11-7z"/>
         </svg>
       </button>
     </div>
+  </div>
   </div>
 
   <div class="kvadovi-cta">
@@ -366,31 +464,69 @@
 <!-- Sekcija kontakt-->
 <section class="sekcija-kontakt" id="contact">
   <h2>Kontakt</h2>
-  <div class="kontakt-elementi">
-    <a href="tel:+381611512022" class="kontakt-card" aria-label="Pozovite nas na 061-151-20-22">
-      <span class="kontakt-badge">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.72 11.72 0 003.66.59 1 1 0 011 1V21a1 1 0 01-1 1A17 17 0 013 4.08a1 1 0 011-1h3.59a1 1 0 011 1 11.72 11.72 0 00.59 3.66 1 1 0 01-.24 1.01l-2.32 2.04z"/>
-        </svg>
-      </span>
-      <span class="kontakt-label">061-151-20-22</span>
-    </a>
-    <a href="tel:+381656366691" class="kontakt-card" aria-label="Pozovite nas na 065-63-666-91">
-      <span class="kontakt-badge">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.72 11.72 0 003.66.59 1 1 0 011 1V21a1 1 0 01-1 1A17 17 0 013 4.08a1 1 0 011-1h3.59a1 1 0 011 1 11.72 11.72 0 00.59 3.66 1 1 0 01-.24 1.01l-2.32 2.04z"/>
-        </svg>
-      </span>
-      <span class="kontakt-label">065-63-666-91</span>
-    </a>
-    <a href="mailto:vikendicekutlesic@gmail.com" class="kontakt-card" aria-label="Pošaljite nam email na vikendicekutlesic@gmail.com">
-      <span class="kontakt-badge">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-        </svg>
-      </span>
-      <span class="kontakt-label">vikendicekutlesic@gmail.com</span>
-    </a>
+  <p class="kontakt-uvod">Pozovite nas, pišite na email ili pošaljite upit — javljamo se u najkraćem roku.</p>
+  <div class="kontakt-sto">
+    <div class="kontakt-levo">
+      <div class="kontakt-elementi">
+        <a href="tel:+381611512022" class="kontakt-card" aria-label="Pozovite nas na 061-151-20-22">
+          <span class="kontakt-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.72 11.72 0 003.66.59 1 1 0 011 1V21a1 1 0 01-1 1A17 17 0 013 4.08a1 1 0 011-1h3.59a1 1 0 011 1 11.72 11.72 0 00.59 3.66 1 1 0 01-.24 1.01l-2.32 2.04z"/>
+            </svg>
+          </span>
+          <span class="kontakt-card-tekst">
+            <span class="kontakt-kicker">Telefon</span>
+            <span class="kontakt-label">061-151-20-22</span>
+          </span>
+        </a>
+        <a href="tel:+381656366691" class="kontakt-card" aria-label="Pozovite nas na 065-63-666-91">
+          <span class="kontakt-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.72 11.72 0 003.66.59 1 1 0 011 1V21a1 1 0 01-1 1A17 17 0 013 4.08a1 1 0 011-1h3.59a1 1 0 011 1 11.72 11.72 0 00.59 3.66 1 1 0 01-.24 1.01l-2.32 2.04z"/>
+            </svg>
+          </span>
+          <span class="kontakt-card-tekst">
+            <span class="kontakt-kicker">Telefon</span>
+            <span class="kontakt-label">065-63-666-91</span>
+          </span>
+        </a>
+        <a href="mailto:vikendicekutlesic@gmail.com" class="kontakt-card" aria-label="Pošaljite nam email na vikendicekutlesic@gmail.com">
+          <span class="kontakt-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </span>
+          <span class="kontakt-card-tekst">
+            <span class="kontakt-kicker">Email</span>
+            <span class="kontakt-label">vikendicekutlesic@gmail.com</span>
+          </span>
+        </a>
+      </div>
+      <ul class="kontakt-info-lista" aria-label="Kratke informacije o smeštaju">
+        <li><strong>Kapacitet:</strong> dve vikendice, do 6 osoba svaka</li>
+        <li><strong>Prijava:</strong> od 14:00 do 17:00</li>
+        <li><strong>Odjava:</strong> od 08:00 do 10:00, kasnije uz dogovor</li>
+        <li><strong>Kućni ljubimci:</strong> dozvoljeni</li>
+        <li><strong>Plaćanje:</strong> gotovina</li>
+        <li><strong>Cena:</strong> po dogovoru — kontaktirajte nas za termin</li>
+      </ul>
+    </div>
+    <form class="kontakt-forma" id="kontaktForma" action="https://formsubmit.co/vikendicekutlesic@gmail.com" method="POST">
+      <h3>Pošaljite upit</h3>
+      <input type="hidden" name="_subject" value="Novi upit sa sajta — Vikendice Kutlešić">
+      <input type="hidden" name="_template" value="box">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="Sa sajta" value="https://vikendicekutlesic.rs">
+      <input type="text" name="_honey" class="kontakt-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label for="kontakt-ime">Ime i prezime</label>
+      <input type="text" id="kontakt-ime" name="Ime i prezime" required autocomplete="name" placeholder="Vaše ime">
+      <label for="kontakt-telefon">Telefon ili email</label>
+      <input type="text" id="kontakt-telefon" name="Telefon ili email" required autocomplete="tel" placeholder="Broj telefona ili email">
+      <label for="kontakt-poruka">Poruka</label>
+      <textarea id="kontakt-poruka" name="Poruka" rows="4" required placeholder="Termin, broj gostiju, pitanja..."></textarea>
+      <button type="submit" class="btn btn-poziv">Pošalji upit</button>
+      <p class="kontakt-status" id="kontaktStatus" role="status" aria-live="polite"></p>
+    </form>
   </div>
 </section>
 <!-- Sekcija lokacija-->
@@ -398,14 +534,38 @@
   <h2 class="lokacija-title">Adresa i lokacija</h2>
 
   <div class="lokacija-flex">
-      <p class="address-full">
-        <a href="https://maps.app.goo.gl/rKHpR3BazRvxSner5" target="_blank" rel="noopener noreferrer">Šišovići 29, 31310 Čajetina, Srbija</a>
-    </p>
+    <a
+      class="lokacija-adresa"
+      href="https://maps.app.goo.gl/rKHpR3BazRvxSner5"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Otvori lokaciju na Google Mapama: Šišovići 29, 31310 Čajetina, Srbija">
+      <span class="lokacija-adresa-pin" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"/>
+        </svg>
+      </span>
+      <span class="lokacija-adresa-copy">
+        <span class="lokacija-adresa-kicker">Otvori u Google Mapama</span>
+        <span class="lokacija-adresa-linija">Šišovići 29</span>
+        <span class="lokacija-adresa-mesto">31310 Čajetina, Srbija</span>
+      </span>
+    </a>
+    <div class="lokacija-mapa">
+      <iframe
+        title="Mapa — Vikendice Kutlešić, Šišovići 29, Čajetina"
+        src="https://www.google.com/maps?q=43.75015960020944,19.72688944603017&z=15&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen></iframe>
+    </div>
   </div>
 </section>
 
 <footer>
-  <img src="slike/ikonice/logo.webp" alt="Vikendice Kutlešić logo" class="footer-logo"/>
+  <a href="#" class="footer-logo-link" aria-label="Početna">
+    <img src="slike/ikonice/logo.webp" alt="" class="footer-logo" width="128" height="128"/>
+  </a>
   <div class="footer-sekcija">
     <div class="footer-flex">
       <img src="slike/ikonice/phone-call.png" alt="ikonica telefona" />
@@ -418,6 +578,7 @@
     <div class="footer-flex">
       <img src="slike/ikonice/instagram.png" alt="ikonica drustvene mreze instagram"/>
       <a href="https://www.instagram.com/vikendicekutlesic/"
+         target="_blank"
          rel="noopener noreferrer"
          class="contact-link instagram-link">
          vikendicekutlesic
@@ -434,27 +595,33 @@
         <li><a href="#lokacija">Lokacija</a></li>
       </ul>
     </nav>
+  <p class="footer-prava">
+    <span class="footer-prava-nosilac">Sva prava zadržavaju Vikendice Kutlešić.</span>
+    <span class="footer-prava-dizajn">Dizajn, fotografije i tekstovi na ovom sajtu su originalni. Njihovo preuzimanje ili imitiranje nije dozvoljeno.</span>
+  </p>
 </footer>
 
 <!-- Kvadovi Lightbox -->
-<div class="lightbox" id="kvadoviLightbox">
+<div class="lightbox" id="kvadoviLightbox" role="dialog" aria-modal="true" aria-label="Kvadovi galerija" hidden>
   <button class="lightbox-close" aria-label="Zatvori">✕</button>
   <button class="lightbox-arrow left" id="kvadoviPrev" aria-label="Prethodna slika">❮</button>
   <button class="lightbox-arrow right" id="kvadoviNext" aria-label="Sledeća slika">❯</button>
   <img id="kvadoviLightboxImg" src="" alt="">
+  <video id="kvadoviLightboxVideo" class="lightbox-video" controls playsinline preload="metadata" hidden></video>
 </div>
 
 <!-- Minimalni Fullscreen Overlay -->
-<div class="fs-overlay" id="fsOverlay">
+<div class="fs-overlay" id="fsOverlay" role="dialog" aria-modal="true" aria-label="Uvećana slika smeštaja" hidden>
   <button class="fs-close" id="fsClose" aria-label="Zatvori">✕</button>
   <img class="fs-image" id="fsImage" src="" alt="">
 </div>
 
-<script type="module" src="js/galerija.js" defer></script>
-  <script type="module" src="js/navigation.js" defer></script>
-  <script type="module" src="js/galerijaFullSc.js" defer></script>
-  <script type="module" src="js/aboutFullSc.js" defer></script>
-  <script type="module" src="js/kvadoviLightbox.js" defer></script>
-  <script type="module" src="js/kvadoviVideo.js" defer></script>
+<script type="module" src="js/galerija.js"></script>
+<script type="module" src="js/navigation.js"></script>
+<script type="module" src="js/galerijaFullSc.js"></script>
+<script type="module" src="js/aboutFullSc.js"></script>
+<script type="module" src="js/kvadoviLightbox.js"></script>
+<script type="module" src="js/kontaktForma.js"></script>
+<script type="module" src="js/prica.js"></script>
 </body>
 </html>
